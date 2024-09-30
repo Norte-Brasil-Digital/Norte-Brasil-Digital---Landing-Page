@@ -22,7 +22,7 @@ export default function ContactSection() {
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Entre em contato</h2>
         <p className="mt-2 text-lg leading-8 text-gray-600">
-          Aute magna irure deserunt veniam aliqua magna enim voluptate.
+          Converse com nosso time especializado, vamos encontrar a solução ideal para o seu negócio.
         </p>
       </div>
       <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
@@ -95,7 +95,7 @@ export default function ContactSection() {
                 name="phone-number"
                 type="tel"
                 autoComplete="tel"
-                className="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
           </div>
