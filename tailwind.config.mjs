@@ -10,7 +10,7 @@ export default {
       },
       fontFamily: {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
-      }
+      },
     },
   },
   plugins: [

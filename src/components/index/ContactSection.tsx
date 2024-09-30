@@ -6,7 +6,7 @@ export default function ContactSection() {
   const [agreed, setAgreed] = useState(false)
 
   return (
-    <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <div id='contact-section' className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div
         aria-hidden="true"
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
@@ -146,7 +146,7 @@ export default function ContactSection() {
             type="submit"
             className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            Vamos conversar
+            Enviar mensagem
           </button>
         </div>
       </form>
