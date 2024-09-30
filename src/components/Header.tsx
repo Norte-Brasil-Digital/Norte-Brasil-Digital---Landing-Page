@@ -46,7 +46,7 @@ export default function Header() {
             <img
               className="h-12 w-auto"
               src={logo_teste.src}
-              alt="WSD Solucões Logo"
+              alt="Norte Brasil Digital Logo"
             />
           </a>
         </div>
@@ -91,7 +91,7 @@ export default function Header() {
               <img
                 className="h-8 w-auto"
                 src={logo_teste.src}
-                alt="WSD Solucões Logo"
+                alt="Norte Brasil Digital Logo"
               />
             </a>
             <button
