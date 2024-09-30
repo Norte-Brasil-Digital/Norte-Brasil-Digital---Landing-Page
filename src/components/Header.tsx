@@ -1,8 +1,7 @@
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
-import logo_texto_preto from "../assets/images/logo_texto_preto.png";
-import logo_texto_branco from "../assets/images/logo_texto_branco.png";
+import logo_teste from "../assets/images/logo_teste.jpeg";
 
 const navigation = [
   { name: "Produtos", href: "#" },
@@ -38,20 +37,20 @@ export default function Header() {
       className={`sticky inset-x-0 top-0 z-50 transition-all duration-300 ${headerClasses}`}
     >
       <nav
-        className={`flex items-center justify-between p-6 transition-all lg:px-28`}
+        className={`flex items-center justify-between p-4 transition-all lg:px-28`}
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">WSD Soluções</span>
+          <a href="#" className="">
+            <span className="sr-only">Norte Brasil Digital</span>
             <img
-              className="h-8 w-auto"
-              src={scrolled ? logo_texto_branco.src : logo_texto_preto.src}
+              className="h-12 w-auto"
+              src={logo_teste.src}
               alt="WSD Solucões Logo"
             />
           </a>
         </div>
-        <div className="flex lg:hidden">
+        <div className="flex lg:hidden">1
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -59,9 +58,8 @@ export default function Header() {
           >
             <span className="sr-only">Open main menu</span>
             <Bars3Icon
-              className={`h-6 w-6 transition duration-300 ${
-                scrolled ? "text-white" : "text-gray-900"
-              }`}
+              className={`h-6 w-6 transition duration-300 ${scrolled ? "text-white" : "text-gray-900"
+                }`}
               aria-hidden="true"
             />
           </button>
@@ -71,9 +69,8 @@ export default function Header() {
             <a
               key={item.name}
               href={item.href}
-              className={`font-semibold leading-6 transition duration-300 ${
-                scrolled ? "text-gray-100" : "text-gray-900"
-              }`}
+              className={`font-semibold leading-6 transition duration-300 ${scrolled ? "text-gray-100" : "text-gray-900"
+                }`}
             >
               {item.name}
             </a>
@@ -90,10 +87,10 @@ export default function Header() {
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">WSD Soluções</span>
+              <span className="sr-only">Norte Brasil Digital</span>
               <img
                 className="h-8 w-auto"
-                src={logo_texto_preto.src}
+                src={logo_teste.src}
                 alt="WSD Solucões Logo"
               />
             </a>
