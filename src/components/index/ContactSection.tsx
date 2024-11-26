@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { Field, Label, Switch } from '@headlessui/react'
+import Button from '../ui/Button'
 
 export default function ContactSection() {
   const [agreed, setAgreed] = useState(false)
@@ -142,12 +143,12 @@ export default function ContactSection() {
           </Field> */}
         </div>
         <div className="mt-10">
-          <button
+          <Button
             type="submit"
-            className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="w-full"
           >
             Enviar mensagem
-          </button>
+          </Button>
         </div>
       </form>
     </div>

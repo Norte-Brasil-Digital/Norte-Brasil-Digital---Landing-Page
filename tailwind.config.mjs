@@ -1,4 +1,4 @@
-import defaultTheme from 'tailwindcss/defaultTheme'
+import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -9,11 +9,9 @@ export default {
         primary: "#03AADE",
       },
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        sans: ["Inter Variable", ...defaultTheme.fontFamily.sans],
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
+  plugins: [require("@tailwindcss/forms")],
 };

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import logo_teste from "../assets/images/logo_teste.jpeg";
 
 const navigation = [
-  { name: "Produtos", href: "#" },
+  { name: "Produtos", href: "/produtos" },
   { name: "Empresa", href: "/quem-somos" },
   { name: "Contato", href: "/#contact-section" },
 ];

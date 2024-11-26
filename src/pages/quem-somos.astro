@@ -1,58 +1,60 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import FooterSection from "../components/index/FooterSection.astro";
 import Header from "../components/Header";
 import stock_meeting from "../assets/images/stock_meeting.jpg";
 import HeroSection from "../components/about/HeroSection.tsx";
+import ValuesSection from "../components/about/ValuesSection.astro";
 ---
 
 <Layout title="Norte Brasil Digital">
-    <Header client:load titleWhite={true} />
+  <Header client:load titleWhite={true} />
 
-    <HeroSection />
-    <main class="container mx-auto px-4 py-10">
-        <section class="mb-10 bg-cover bg-center bg-no-repeat">
-            <h2 class="mb-4 text-2xl font-bold">Quem Somos</h2>
-            <p class="leading-relaxed text-gray-700">
-                Somos uma equipe dedicada de desenvolvedores de software
-                comprometidos em entregar soluções de software personalizadas e
-                de alta qualidade, adaptadas para atender às necessidades
-                exclusivas de nossos clientes. Com anos de experiência na
-                indústria, aproveitamos as mais recentes tecnologias para criar
-                aplicativos inovadores que impulsionam o sucesso empresarial.
-            </p>
-        </section>
+  <HeroSection />
 
-        <section class="mb-10">
-            <h2 class="mb-4 text-2xl font-bold">Nossa Missão</h2>
-            <p class="leading-relaxed text-gray-700">
-                Nossa missão é capacitar empresas fornecendo-lhes soluções de
-                software personalizadas que melhoram suas operações, aumentam a
-                eficiência e impulsionam o crescimento. Acreditamos na
-                colaboração e trabalhamos em estreita parceria com nossos
-                clientes para entender seus objetivos e desafios.
-            </p>
-        </section>
+  <ValuesSection />
 
-        <section class="mb-10">
-            <h2 class="mb-4 text-2xl font-bold">O Que Fazemos</h2>
-            <ul class="list-inside list-disc text-gray-700">
-                <li>Desenvolvimento de software personalizado</li>
-                <li>Desenvolvimento de aplicativos web e móveis</li>
-                <li>Soluções e integrações em nuvem</li>
-                <li>Consultoria e suporte em software</li>
-                <li>Serviços de design UI/UX</li>
-            </ul>
-        </section>
+  <main class="container mx-auto px-4 py-10">
+    <section class="mb-10 bg-cover bg-center bg-no-repeat">
+      <h2 class="mb-4 text-2xl font-bold">Quem Somos</h2>
+      <p class="leading-relaxed text-gray-700">
+        "Transformamos ideias em soluções digitais sob medida, impulsionando o
+        crescimento da sua empresa com tecnologia inovadora."
+      </p>
+    </section>
 
-        <section>
-            <h2 class="mb-4 text-2xl font-bold">Por Que Nos Escolher</h2>
-            <p class="leading-relaxed text-gray-700">
-                Nossa equipe é apaixonada por tecnologia e inovação. Nos
-                orgulhamos de nossa atenção aos detalhes, compromisso com a
-                qualidade e capacidade de entregar projetos no prazo e dentro do
-                orçamento. Nossa abordagem centrada no cliente garante que
-                alinhamos nossas soluções aos objetivos do seu negócio.
-            </p>
-        </section>
-    </main>
+    <section class="mb-10">
+      <h2 class="mb-4 text-2xl font-bold">Nossa Missão</h2>
+      <p class="leading-relaxed text-gray-700">
+        Nossa missão é capacitar empresas fornecendo-lhes soluções de software
+        personalizadas que melhoram suas operações, aumentam a eficiência e
+        impulsionam o crescimento. Acreditamos na colaboração e trabalhamos em
+        estreita parceria com nossos clientes para entender seus objetivos e
+        desafios.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="mb-4 text-2xl font-bold">O Que Fazemos</h2>
+      <ul class="list-inside list-disc text-gray-700">
+        <li>Desenvolvimento de software personalizado</li>
+        <li>Desenvolvimento de aplicativos web e móveis</li>
+        <li>Soluções e integrações em nuvem</li>
+        <li>Consultoria e suporte em software</li>
+        <li>Serviços de design UI/UX</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="mb-4 text-2xl font-bold">Por Que Nos Escolher</h2>
+      <p class="leading-relaxed text-gray-700">
+        Nossa equipe é apaixonada por tecnologia e inovação. Nos orgulhamos de
+        nossa atenção aos detalhes, compromisso com a qualidade e capacidade de
+        entregar projetos no prazo e dentro do orçamento. Nossa abordagem
+        centrada no cliente garante que alinhamos nossas soluções aos objetivos
+        do seu negócio.
+      </p>
+    </section>
+  </main>
+  <FooterSection />
 </Layout>
