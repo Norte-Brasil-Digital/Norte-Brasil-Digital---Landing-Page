@@ -4,16 +4,16 @@ import { useState, useEffect } from "react";
 import logo_teste from "../assets/images/logo_teste.jpeg";
 
 const navigation = [
-  { name: "Produtos", href: "/produtos" },
+  // { name: "Produtos", href: "/produtos" },
   { name: "Empresa", href: "/quem-somos" },
   { name: "Contato", href: "/#contact-section" },
 ];
 
 export default function Header({ titleWhite = false }) {
-
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const textColorClass = (scrolled || titleWhite) ? "text-white" : "text-gray-900";
+  const textColorClass =
+    scrolled || titleWhite ? "text-white" : "text-gray-900";
 
   const handleScroll = () => {
     setScrolled(window.scrollY > 32);
@@ -51,7 +51,8 @@ export default function Header({ titleWhite = false }) {
             />
           </a>
         </div>
-        <div className="flex lg:hidden">1
+        <div className="flex lg:hidden">
+          1
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
