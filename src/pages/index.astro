@@ -3,12 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import HeroSection from "../components/index/HeroSection.astro";
 import Header from "../components/Header";
 import FeaturesSection from "../components/index/FeaturesSection.astro";
+import ContactSection from "../components/index/ContactSection.tsx";
+import FooterSection from "../components/index/FooterSection.astro";
 ---
 
 <Layout title="Norte Brasil Digital">
   <Header client:load />
   <HeroSection />
   <FeaturesSection />
+  <ContactSection />
+  <FooterSection />
 </Layout>
 
 <style></style>

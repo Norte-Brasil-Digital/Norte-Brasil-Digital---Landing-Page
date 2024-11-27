@@ -4,15 +4,16 @@ import { useState, useEffect } from "react";
 import logo_teste from "../assets/images/logo_teste.jpeg";
 
 const navigation = [
-  { name: "Produtos", href: "#" },
-  { name: "Empresa", href: "#" },
-  { name: "Equipe", href: "#" },
-  { name: "Contato", href: "#" },
+  { name: "Produtos", href: "/produtos" },
+  { name: "Empresa", href: "/quem-somos" },
+  { name: "Contato", href: "/#contact-section" },
 ];
 
-export default function Header() {
+export default function Header({ titleWhite = false }) {
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const textColorClass = (scrolled || titleWhite) ? "text-white" : "text-gray-900";
 
   const handleScroll = () => {
     setScrolled(window.scrollY > 32);
@@ -41,12 +42,12 @@ export default function Header() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="">
+          <a href="/" className="">
             <span className="sr-only">Norte Brasil Digital</span>
             <img
               className="h-12 w-auto"
               src={logo_teste.src}
-              alt="WSD Solucões Logo"
+              alt="Norte Brasil Digital Logo"
             />
           </a>
         </div>
@@ -58,8 +59,7 @@ export default function Header() {
           >
             <span className="sr-only">Open main menu</span>
             <Bars3Icon
-              className={`h-6 w-6 transition duration-300 ${scrolled ? "text-white" : "text-gray-900"
-                }`}
+              className={`h-6 w-6 transition duration-300 ${textColorClass}`}
               aria-hidden="true"
             />
           </button>
@@ -69,8 +69,7 @@ export default function Header() {
             <a
               key={item.name}
               href={item.href}
-              className={`font-semibold leading-6 transition duration-300 ${scrolled ? "text-gray-100" : "text-gray-900"
-                }`}
+              className={`font-semibold leading-6 transition duration-300 ${textColorClass}`}
             >
               {item.name}
             </a>
@@ -91,7 +90,7 @@ export default function Header() {
               <img
                 className="h-8 w-auto"
                 src={logo_teste.src}
-                alt="WSD Solucões Logo"
+                alt="Norte Brasil Digital Logo"
               />
             </a>
             <button
