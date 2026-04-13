@@ -124,9 +124,9 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-stone-50 text-slate-950 pt-[76px] sm:pt-[84px]">
+    <main className="min-h-screen overflow-x-hidden bg-stone-50 pt-[76px] text-slate-950 sm:pt-[84px]">
       <header
-        className={`fixed inset-x-0 top-0 z-40 border-b border-emerald-950/10 bg-stone-50/90 backdrop-blur-xl transition-transform duration-300 ${
+        className={`fixed inset-x-0 top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur transition-transform duration-300 ${
           headerHidden ? "-translate-y-full" : "translate-y-0"
         }`}
       >
@@ -151,7 +151,7 @@ export default function Home() {
             href={whatsappHref}
             target="_blank"
             rel="noreferrer"
-            className="rounded-full bg-emerald-900 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-emerald-950"
+            className="rounded-md bg-emerald-900 px-5 py-3 text-sm font-bold text-white transition hover:bg-emerald-950"
           >
             Fale com um consultor
           </a>
@@ -170,7 +170,7 @@ export default function Home() {
             <p className="mb-6 inline-flex rounded-full border border-emerald-900/20 bg-white/70 px-4 py-2 text-sm font-bold text-emerald-900 shadow-sm">
               +500 usuários ativos
             </p>
-            <h1 className="max-w-4xl font-serif text-5xl font-semibold leading-[0.95] tracking-[-0.04em] text-emerald-950 sm:text-6xl lg:text-7xl">
+            <h1 className="max-w-4xl text-5xl font-bold leading-[0.98] text-emerald-950 sm:text-6xl lg:text-7xl">
               Sistemas de gestão para negócios que precisam operar melhor.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-700">
@@ -183,38 +183,38 @@ export default function Home() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full bg-emerald-900 px-7 py-4 text-center text-sm font-black uppercase tracking-[0.18em] text-white shadow-lg shadow-emerald-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-950"
+                className="rounded-lg bg-emerald-900 px-7 py-4 text-center text-sm font-bold uppercase text-white shadow-lg shadow-emerald-950/20 transition hover:bg-emerald-950"
               >
                 Agendar reunião com analista
               </a>
               <a
                 href="#solucoes"
-                className="rounded-full border border-emerald-950/20 bg-white/70 px-7 py-4 text-center text-sm font-black uppercase tracking-[0.18em] text-emerald-950 transition hover:-translate-y-0.5 hover:border-emerald-900"
+                className="rounded-lg border border-emerald-950/20 bg-white/70 px-7 py-4 text-center text-sm font-bold uppercase text-emerald-950 transition hover:border-emerald-900"
               >
                 Ver soluções
               </a>
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-emerald-950/10 bg-white/80 p-5 shadow-2xl shadow-emerald-950/10 backdrop-blur">
-            <div className="rounded-[1.5rem] bg-emerald-950 p-6 text-white">
-              <p className="text-sm font-bold uppercase tracking-[0.22em] text-emerald-100">
+          <div className="rounded-lg border border-emerald-950/10 bg-white/80 p-5 shadow-2xl shadow-emerald-950/10 backdrop-blur">
+            <div className="rounded-lg bg-emerald-950 p-6 text-white">
+              <p className="text-sm font-bold uppercase tracking-[0.12em] text-emerald-100">
                 Gestão em uma só rotina
               </p>
               <div className="mt-8 grid gap-3">
                 {["Vendas", "Estoque", "Financeiro", "Fiscal"].map((item) => (
                   <div
                     key={item}
-                    className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/10 p-4"
+                    className="flex items-center justify-between rounded-md border border-white/10 bg-white/10 p-4"
                   >
                     <span className="font-semibold">{item}</span>
-                    <span className="rounded-full bg-emerald-300/20 px-3 py-1 text-xs font-bold text-emerald-50">
+                    <span className="rounded-md bg-emerald-300/20 px-3 py-1 text-xs font-bold text-emerald-50">
                       Integrado
                     </span>
                   </div>
                 ))}
               </div>
-              <div className="mt-8 rounded-3xl bg-stone-50 p-5 text-emerald-950">
+              <div className="mt-8 rounded-lg bg-stone-50 p-5 text-emerald-950">
                 <p className="text-3xl font-black">14+</p>
                 <p className="mt-1 text-sm font-semibold text-slate-700">
                   anos buscando soluções simples e seguras para empresas da região.
@@ -228,10 +228,10 @@ export default function Home() {
       <section id="sobre" className="px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-emerald-800">
+            <p className="text-sm font-bold uppercase text-emerald-800">
               Quem somos
             </p>
-            <h2 className="mt-4 font-serif text-4xl font-semibold tracking-[-0.03em] text-emerald-950 sm:text-5xl">
+            <h2 className="mt-4 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
               Tecnologia com proximidade para a gestão do dia a dia.
             </h2>
             <p className="mt-6 text-lg leading-8 text-slate-700">
@@ -240,16 +240,16 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid gap-5">
-            <article className="rounded-[1.75rem] border border-emerald-950/10 bg-white p-7 shadow-sm">
-              <h3 className="font-serif text-3xl font-semibold text-emerald-950">Missão</h3>
+          <div className="grid gap-8 border-l border-slate-200 pl-6">
+            <article>
+              <h3 className="text-2xl font-bold text-slate-950">Missão</h3>
               <p className="mt-4 leading-7 text-slate-700">
                 Fornecer sistemas completos e intuitivos de gestão para varejo e serviços,
                 entregando tecnologia, segurança e agilidade nos processos do dia a dia.
               </p>
             </article>
-            <article className="rounded-[1.75rem] border border-emerald-950/10 bg-white p-7 shadow-sm">
-              <h3 className="font-serif text-3xl font-semibold text-emerald-950">Visão</h3>
+            <article>
+              <h3 className="text-2xl font-bold text-slate-950">Visão</h3>
               <p className="mt-4 leading-7 text-slate-700">
                 Ser referência em sistema de gestão empresarial em nossa área de atuação, oferecendo
                 proximidade e simplicidade em soluções e atendimento.
@@ -259,7 +259,7 @@ export default function Home() {
               {values.map((value) => (
                 <span
                   key={value}
-                  className="rounded-full border border-emerald-900/20 bg-emerald-50 px-4 py-2 text-sm font-bold text-emerald-950"
+                  className="border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800"
                 >
                   {value}
                 </span>
@@ -272,21 +272,20 @@ export default function Home() {
       <section className="bg-emerald-950 px-5 py-20 text-white lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-emerald-200">
+            <p className="text-sm font-bold uppercase text-emerald-200">
               Vantagens para o seu negócio
             </p>
-            <h2 className="mt-4 font-serif text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">
+            <h2 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
               Soluções robustas, com atendimento simples de entender.
             </h2>
           </div>
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
             {advantages.map((advantage) => (
               <article
                 key={advantage.title}
-                className="rounded-[1.5rem] border border-white/10 bg-white/10 p-6"
+                className="border-t border-white/20 pt-5"
               >
-                <div className="mb-8 h-1.5 w-14 rounded-full bg-emerald-300" />
-                <h3 className="text-xl font-black">{advantage.title}</h3>
+                <h3 className="text-xl font-bold">{advantage.title}</h3>
                 <p className="mt-4 leading-7 text-emerald-50/80">{advantage.text}</p>
               </article>
             ))}
@@ -298,10 +297,10 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.25em] text-emerald-800">
+              <p className="text-sm font-bold uppercase text-emerald-800">
                 Ramos de atividade
               </p>
-              <h2 className="mt-4 font-serif text-4xl font-semibold tracking-[-0.03em] text-emerald-950 sm:text-5xl">
+              <h2 className="mt-4 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
                 Preparado para diferentes tipos de operação.
               </h2>
               <p className="mt-6 text-lg leading-8 text-slate-700">
@@ -309,11 +308,11 @@ export default function Home() {
                 claras para vender e administrar.
               </p>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid border-t border-slate-200 sm:grid-cols-2 lg:grid-cols-3">
               {segments.map((segment) => (
                 <div
                   key={segment}
-                  className="rounded-2xl border border-emerald-950/10 bg-white px-5 py-4 font-bold text-slate-800 shadow-sm"
+                  className="border-b border-slate-200 py-4 pr-6 font-semibold text-slate-800"
                 >
                   {segment}
                 </div>
@@ -323,23 +322,20 @@ export default function Home() {
 
           <div className="mt-20">
             <div className="max-w-3xl">
-              <p className="text-sm font-black uppercase tracking-[0.25em] text-emerald-800">
+              <p className="text-sm font-bold uppercase text-emerald-800">
                 Funcionalidades
               </p>
-              <h2 className="mt-4 font-serif text-4xl font-semibold tracking-[-0.03em] text-emerald-950 sm:text-5xl">
+              <h2 className="mt-4 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
                 O essencial para gerenciar o negócio em um só lugar.
               </h2>
             </div>
-            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-10 grid border-t border-slate-200 md:grid-cols-2 lg:grid-cols-3">
               {features.map(([title, text]) => (
                 <article
                   key={title}
-                  className="rounded-[1.5rem] border border-emerald-950/10 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-950/10"
+                  className="border-b border-slate-200 py-6 pr-8"
                 >
-                  <span className="grid size-10 place-items-center rounded-full bg-emerald-900 text-sm font-black text-white">
-                    {title.slice(0, 1)}
-                  </span>
-                  <h3 className="mt-5 text-xl font-black text-emerald-950">{title}</h3>
+                  <h3 className="text-xl font-bold text-slate-950">{title}</h3>
                   <p className="mt-3 leading-7 text-slate-700">{text}</p>
                 </article>
               ))}
@@ -351,25 +347,25 @@ export default function Home() {
       <section id="contato" className="bg-stone-100 px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-emerald-800">
+            <p className="text-sm font-bold uppercase text-emerald-800">
               Fale com um especialista
             </p>
-            <h2 className="mt-4 font-serif text-4xl font-semibold tracking-[-0.03em] text-emerald-950 sm:text-5xl">
+            <h2 className="mt-4 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
               O próximo passo para uma gestão mais eficiente.
             </h2>
             <p className="mt-6 text-lg leading-8 text-slate-700">
               Agende uma demonstração ou converse com nossos analistas para entender, na prática,
               como nossas soluções podem apoiar sua empresa.
             </p>
-            <div className="mt-8 rounded-[1.5rem] border border-emerald-950/10 bg-white p-6">
-              <p className="font-serif text-2xl font-semibold text-emerald-950">
+            <div className="mt-8 border-l-4 border-emerald-800 pl-6">
+              <p className="text-2xl font-bold text-slate-950">
                 Confiança que gera resultados
               </p>
               <blockquote className="mt-4 leading-7 text-slate-700">
                 "As soluções da Norte Brasil Digital foram um divisor de águas para nossa empresa. O
                 suporte é incrível e a tecnologia é exatamente o que o mercado precisa."
               </blockquote>
-              <p className="mt-4 text-sm font-black text-emerald-900">
+              <p className="mt-4 text-sm font-bold text-emerald-900">
                 Feliphe Silva, TechMaster Soluções Digitais
               </p>
             </div>
@@ -377,7 +373,7 @@ export default function Home() {
 
           <form
             onSubmit={handleSubmit}
-            className="rounded-[2rem] border border-emerald-950/10 bg-white p-6 shadow-xl shadow-emerald-950/10 sm:p-8"
+            className="border border-slate-200 bg-white p-6 sm:p-8"
           >
             <div className="grid gap-5">
               <label className="grid gap-2 text-sm font-bold text-slate-800">
@@ -385,7 +381,7 @@ export default function Home() {
                 <input
                   value={name}
                   onChange={(event) => setName(event.target.value)}
-                  className="rounded-2xl border border-slate-200 bg-stone-50 px-4 py-4 font-medium outline-none transition focus:border-emerald-700 focus:bg-white"
+                  className="rounded-md border border-slate-300 bg-white px-4 py-4 font-medium outline-none transition focus:border-emerald-700"
                   placeholder="Seu nome"
                 />
               </label>
@@ -394,7 +390,7 @@ export default function Home() {
                 <input
                   value={business}
                   onChange={(event) => setBusiness(event.target.value)}
-                  className="rounded-2xl border border-slate-200 bg-stone-50 px-4 py-4 font-medium outline-none transition focus:border-emerald-700 focus:bg-white"
+                  className="rounded-md border border-slate-300 bg-white px-4 py-4 font-medium outline-none transition focus:border-emerald-700"
                   placeholder="Nome da empresa"
                 />
               </label>
@@ -403,11 +399,11 @@ export default function Home() {
                 <input
                   value={phone}
                   onChange={(event) => setPhone(event.target.value)}
-                  className="rounded-2xl border border-slate-200 bg-stone-50 px-4 py-4 font-medium outline-none transition focus:border-emerald-700 focus:bg-white"
+                  className="rounded-md border border-slate-300 bg-white px-4 py-4 font-medium outline-none transition focus:border-emerald-700"
                   placeholder="(94) 00000-0000"
                 />
               </label>
-              <button className="mt-2 rounded-full bg-emerald-900 px-7 py-4 text-sm font-black uppercase tracking-[0.18em] text-white shadow-lg shadow-emerald-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-950">
+              <button className="mt-2 rounded-md bg-emerald-900 px-7 py-4 text-sm font-bold uppercase text-white transition hover:bg-emerald-950">
                 Agendar demonstração
               </button>
               <p className="text-sm leading-6 text-slate-500">
