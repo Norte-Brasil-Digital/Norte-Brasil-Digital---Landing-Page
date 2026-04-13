@@ -1,12 +1,10 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import type { Route } from "./+types/_index";
+import logoNbd from "../assets/logo_nbd.jpeg";
 
 const whatsappNumber = "5594991636639";
-const baseMessage =
-  "Olá, gostaria de agendar uma demonstração com a Norte Brasil Digital.";
-const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-  baseMessage,
-)}`;
+const baseMessage = "Olá, gostaria de agendar uma demonstração com a Norte Brasil Digital.";
+const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(baseMessage)}`;
 
 const advantages = [
   {
@@ -82,6 +80,29 @@ export default function Home() {
   const [name, setName] = useState("");
   const [business, setBusiness] = useState("");
   const [phone, setPhone] = useState("");
+  const [headerHidden, setHeaderHidden] = useState(false);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    function onScroll() {
+      const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > lastScrollY;
+
+      if (currentScrollY < 80) {
+        setHeaderHidden(false);
+      } else if (scrollingDown) {
+        setHeaderHidden(true);
+      } else {
+        setHeaderHidden(false);
+      }
+
+      lastScrollY = currentScrollY;
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -103,21 +124,15 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen overflow-hidden bg-stone-50 text-slate-950">
-      <header className="sticky top-0 z-40 border-b border-emerald-950/10 bg-stone-50/90 backdrop-blur-xl">
+    <main className="min-h-screen overflow-x-hidden bg-stone-50 text-slate-950 pt-[76px] sm:pt-[84px]">
+      <header
+        className={`fixed inset-x-0 top-0 z-40 border-b border-emerald-950/10 bg-stone-50/90 backdrop-blur-xl transition-transform duration-300 ${
+          headerHidden ? "-translate-y-full" : "translate-y-0"
+        }`}
+      >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
           <a href="#inicio" className="flex items-center gap-3">
-            <span className="grid size-11 place-items-center rounded-2xl bg-emerald-900 text-sm font-black tracking-tight text-white shadow-sm">
-              NB
-            </span>
-            <span className="leading-tight">
-              <span className="block font-serif text-xl font-semibold text-emerald-950">
-                Norte Brasil
-              </span>
-              <span className="block text-xs font-bold uppercase tracking-[0.28em] text-emerald-800">
-                Digital
-              </span>
-            </span>
+            <img src={logoNbd} alt="Norte Brasil Digital" className="h-12 w-auto object-contain" />
           </a>
 
           <div className="hidden items-center gap-8 text-sm font-semibold text-slate-700 md:flex">
@@ -159,9 +174,8 @@ export default function Home() {
               Sistemas de gestão para negócios que precisam operar melhor.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-700">
-              A Norte Brasil Digital ajuda empresas de varejo e serviços a
-              organizar processos, vender com mais controle e acompanhar a
-              gestão com simplicidade.
+              A Norte Brasil Digital ajuda empresas de varejo e serviços a organizar processos,
+              vender com mais controle e acompanhar a gestão com simplicidade.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -203,8 +217,7 @@ export default function Home() {
               <div className="mt-8 rounded-3xl bg-stone-50 p-5 text-emerald-950">
                 <p className="text-3xl font-black">14+</p>
                 <p className="mt-1 text-sm font-semibold text-slate-700">
-                  anos buscando soluções simples e seguras para empresas da
-                  região.
+                  anos buscando soluções simples e seguras para empresas da região.
                 </p>
               </div>
             </div>
@@ -222,31 +235,24 @@ export default function Home() {
               Tecnologia com proximidade para a gestão do dia a dia.
             </h2>
             <p className="mt-6 text-lg leading-8 text-slate-700">
-              Há mais de 14 anos no mercado, a Norte Brasil Digital busca
-              soluções que ajudam o empreendedor a gerir seu negócio com
-              eficiência, segurança e simplicidade.
+              Há mais de 14 anos no mercado, a Norte Brasil Digital busca soluções que ajudam o
+              empreendedor a gerir seu negócio com eficiência, segurança e simplicidade.
             </p>
           </div>
 
           <div className="grid gap-5">
             <article className="rounded-[1.75rem] border border-emerald-950/10 bg-white p-7 shadow-sm">
-              <h3 className="font-serif text-3xl font-semibold text-emerald-950">
-                Missão
-              </h3>
+              <h3 className="font-serif text-3xl font-semibold text-emerald-950">Missão</h3>
               <p className="mt-4 leading-7 text-slate-700">
-                Fornecer sistemas completos e intuitivos de gestão para varejo
-                e serviços, entregando tecnologia, segurança e agilidade nos
-                processos do dia a dia.
+                Fornecer sistemas completos e intuitivos de gestão para varejo e serviços,
+                entregando tecnologia, segurança e agilidade nos processos do dia a dia.
               </p>
             </article>
             <article className="rounded-[1.75rem] border border-emerald-950/10 bg-white p-7 shadow-sm">
-              <h3 className="font-serif text-3xl font-semibold text-emerald-950">
-                Visão
-              </h3>
+              <h3 className="font-serif text-3xl font-semibold text-emerald-950">Visão</h3>
               <p className="mt-4 leading-7 text-slate-700">
-                Ser referência em sistema de gestão empresarial em nossa área
-                de atuação, oferecendo proximidade e simplicidade em soluções e
-                atendimento.
+                Ser referência em sistema de gestão empresarial em nossa área de atuação, oferecendo
+                proximidade e simplicidade em soluções e atendimento.
               </p>
             </article>
             <div className="flex flex-wrap gap-3">
@@ -281,9 +287,7 @@ export default function Home() {
               >
                 <div className="mb-8 h-1.5 w-14 rounded-full bg-emerald-300" />
                 <h3 className="text-xl font-black">{advantage.title}</h3>
-                <p className="mt-4 leading-7 text-emerald-50/80">
-                  {advantage.text}
-                </p>
+                <p className="mt-4 leading-7 text-emerald-50/80">{advantage.text}</p>
               </article>
             ))}
           </div>
@@ -301,8 +305,8 @@ export default function Home() {
                 Preparado para diferentes tipos de operação.
               </h2>
               <p className="mt-6 text-lg leading-8 text-slate-700">
-                A plataforma atende negócios que precisam de controle,
-                velocidade e informações claras para vender e administrar.
+                A plataforma atende negócios que precisam de controle, velocidade e informações
+                claras para vender e administrar.
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -335,9 +339,7 @@ export default function Home() {
                   <span className="grid size-10 place-items-center rounded-full bg-emerald-900 text-sm font-black text-white">
                     {title.slice(0, 1)}
                   </span>
-                  <h3 className="mt-5 text-xl font-black text-emerald-950">
-                    {title}
-                  </h3>
+                  <h3 className="mt-5 text-xl font-black text-emerald-950">{title}</h3>
                   <p className="mt-3 leading-7 text-slate-700">{text}</p>
                 </article>
               ))}
@@ -356,18 +358,16 @@ export default function Home() {
               O próximo passo para uma gestão mais eficiente.
             </h2>
             <p className="mt-6 text-lg leading-8 text-slate-700">
-              Agende uma demonstração ou converse com nossos analistas para
-              entender, na prática, como nossas soluções podem apoiar sua
-              empresa.
+              Agende uma demonstração ou converse com nossos analistas para entender, na prática,
+              como nossas soluções podem apoiar sua empresa.
             </p>
             <div className="mt-8 rounded-[1.5rem] border border-emerald-950/10 bg-white p-6">
               <p className="font-serif text-2xl font-semibold text-emerald-950">
                 Confiança que gera resultados
               </p>
               <blockquote className="mt-4 leading-7 text-slate-700">
-                "As soluções da Norte Brasil Digital foram um divisor de águas
-                para nossa empresa. O suporte é incrível e a tecnologia é
-                exatamente o que o mercado precisa."
+                "As soluções da Norte Brasil Digital foram um divisor de águas para nossa empresa. O
+                suporte é incrível e a tecnologia é exatamente o que o mercado precisa."
               </blockquote>
               <p className="mt-4 text-sm font-black text-emerald-900">
                 Feliphe Silva, TechMaster Soluções Digitais
@@ -411,9 +411,8 @@ export default function Home() {
                 Agendar demonstração
               </button>
               <p className="text-sm leading-6 text-slate-500">
-                O botão abre uma conversa no WhatsApp com as informações
-                preenchidas. Nenhum dado é enviado para um servidor nesta
-                página.
+                O botão abre uma conversa no WhatsApp com as informações preenchidas. Nenhum dado é
+                enviado para um servidor nesta página.
               </p>
             </div>
           </form>
@@ -423,12 +422,10 @@ export default function Home() {
       <footer className="bg-emerald-950 px-5 py-12 text-white lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div>
-            <p className="font-serif text-3xl font-semibold">
-              Norte Brasil Digital
-            </p>
+            <img src={logoNbd} alt="Norte Brasil Digital" className="h-16 w-auto object-contain" />
             <p className="mt-4 max-w-md leading-7 text-emerald-50/75">
-              Transformando ideias em soluções digitais para impulsionar o
-              crescimento do seu negócio.
+              Transformando ideias em soluções digitais para impulsionar o crescimento do seu
+              negócio.
             </p>
             <p className="mt-6 text-sm leading-6 text-emerald-50/70">
               Rua Santarém, 817 - Bairro Maranhão
@@ -437,9 +434,7 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <p className="font-black uppercase tracking-[0.2em] text-emerald-200">
-              Links úteis
-            </p>
+            <p className="font-black uppercase tracking-[0.2em] text-emerald-200">Links úteis</p>
             <div className="mt-5 grid gap-3 text-emerald-50/80">
               <a href="#sobre" className="hover:text-white">
                 Sobre nós
@@ -453,9 +448,7 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <p className="font-black uppercase tracking-[0.2em] text-emerald-200">
-              Contato
-            </p>
+            <p className="font-black uppercase tracking-[0.2em] text-emerald-200">Contato</p>
             <div className="mt-5 grid gap-3 text-emerald-50/80">
               <a href="mailto:contato@nortebrasildigital.com.br">
                 contato@nortebrasildigital.com.br
