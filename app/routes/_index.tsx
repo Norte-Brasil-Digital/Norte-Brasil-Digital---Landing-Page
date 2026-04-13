@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import type { Route } from "./+types/home";
+import type { Route } from "./+types/_index";
 
 const whatsappNumber = "5594991636639";
 const baseMessage =
