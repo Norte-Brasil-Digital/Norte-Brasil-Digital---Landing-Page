@@ -228,9 +228,7 @@ export default function Home() {
       <section id="sobre" className="px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <p className="text-sm font-bold uppercase text-emerald-800">
-              Quem somos
-            </p>
+            <p className="text-sm font-bold uppercase text-emerald-800">Quem somos</p>
             <h2 className="mt-4 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
               Tecnologia com proximidade para a gestão do dia a dia.
             </h2>
@@ -281,10 +279,7 @@ export default function Home() {
           </div>
           <div className="mt-12 grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
             {advantages.map((advantage) => (
-              <article
-                key={advantage.title}
-                className="border-t border-white/20 pt-5"
-              >
+              <article key={advantage.title} className="border-t border-white/20 pt-5">
                 <h3 className="text-xl font-bold">{advantage.title}</h3>
                 <p className="mt-4 leading-7 text-emerald-50/80">{advantage.text}</p>
               </article>
@@ -297,9 +292,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
             <div>
-              <p className="text-sm font-bold uppercase text-emerald-800">
-                Ramos de atividade
-              </p>
+              <p className="text-sm font-bold uppercase text-emerald-800">Ramos de atividade</p>
               <h2 className="mt-4 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
                 Preparado para diferentes tipos de operação.
               </h2>
@@ -322,19 +315,14 @@ export default function Home() {
 
           <div className="mt-20">
             <div className="max-w-3xl">
-              <p className="text-sm font-bold uppercase text-emerald-800">
-                Funcionalidades
-              </p>
+              <p className="text-sm font-bold uppercase text-emerald-800">Funcionalidades</p>
               <h2 className="mt-4 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
                 O essencial para gerenciar o negócio em um só lugar.
               </h2>
             </div>
             <div className="mt-10 grid border-t border-slate-200 md:grid-cols-2 lg:grid-cols-3">
               {features.map(([title, text]) => (
-                <article
-                  key={title}
-                  className="border-b border-slate-200 py-6 pr-8"
-                >
+                <article key={title} className="border-b border-slate-200 py-6 pr-8">
                   <h3 className="text-xl font-bold text-slate-950">{title}</h3>
                   <p className="mt-3 leading-7 text-slate-700">{text}</p>
                 </article>
@@ -347,9 +335,7 @@ export default function Home() {
       <section id="contato" className="bg-stone-100 px-5 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <p className="text-sm font-bold uppercase text-emerald-800">
-              Fale com um especialista
-            </p>
+            <p className="text-sm font-bold uppercase text-emerald-800">Fale com um especialista</p>
             <h2 className="mt-4 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
               O próximo passo para uma gestão mais eficiente.
             </h2>
@@ -358,9 +344,7 @@ export default function Home() {
               como nossas soluções podem apoiar sua empresa.
             </p>
             <div className="mt-8 border-l-4 border-emerald-800 pl-6">
-              <p className="text-2xl font-bold text-slate-950">
-                Confiança que gera resultados
-              </p>
+              <p className="text-2xl font-bold text-slate-950">Confiança que gera resultados</p>
               <blockquote className="mt-4 leading-7 text-slate-700">
                 "As soluções da Norte Brasil Digital foram um divisor de águas para nossa empresa. O
                 suporte é incrível e a tecnologia é exatamente o que o mercado precisa."
@@ -371,10 +355,7 @@ export default function Home() {
             </div>
           </div>
 
-          <form
-            onSubmit={handleSubmit}
-            className="border border-slate-200 bg-white p-6 sm:p-8"
-          >
+          <form onSubmit={handleSubmit} className="border border-slate-200 bg-white p-6 sm:p-8">
             <div className="grid gap-5">
               <label className="grid gap-2 text-sm font-bold text-slate-800">
                 Nome
@@ -446,9 +427,7 @@ export default function Home() {
           <div>
             <p className="font-black uppercase tracking-[0.2em] text-emerald-200">Contato</p>
             <div className="mt-5 grid gap-3 text-emerald-50/80">
-              <a href="mailto:contato@nortebrasildigital.com.br">
-                contato@nortebrasildigital.com.br
-              </a>
+              <a href="mailto:nortebrasildigital@gmail.com">nortebrasildigital@gmail.com</a>
               <a href={whatsappHref} target="_blank" rel="noreferrer">
                 (94) 99163-6639
               </a>
