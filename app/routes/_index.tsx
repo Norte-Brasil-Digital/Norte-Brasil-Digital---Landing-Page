@@ -1,27 +1,27 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import type { Route } from "./+types/_index";
-import logoNbd from "../assets/logo_nbd.jpeg";
+import logoNbdBlue from "../assets/logo-nbd-blue.webp";
+import logoNbdWhite from "../assets/logo-nbd-white.webp";
+import { buildWhatsappHref } from "../lib/whatsapp";
 
-const whatsappNumber = "5594991636639";
-const baseMessage = "Olá, gostaria de agendar uma demonstração com a Norte Brasil Digital.";
-const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(baseMessage)}`;
+const whatsappHref = buildWhatsappHref();
 
 const advantages = [
   {
     title: "Tecnologia confiável",
-    text: "Sistemas modernos para manter sua operação segura, rápida e preparada para crescer.",
+    text: "Sistemas modernos para uma operação segura, rápida e preparada para crescer.",
   },
   {
     title: "Processos mais simples",
-    text: "Automatize rotinas, reduza retrabalho e ganhe tempo para focar na gestão do negócio.",
+    text: "Menos retrabalho e mais tempo para cuidar da gestão do negócio.",
   },
   {
     title: "Suporte próximo",
-    text: "Atendimento humano, ágil e especializado para ajudar sua equipe no dia a dia.",
+    text: "Atendimento humano, ágil e especializado para a rotina da sua equipe.",
   },
   {
     title: "Decisões com dados",
-    text: "Relatórios e indicadores para acompanhar resultados com mais clareza.",
+    text: "Relatórios e indicadores que tornam cada resultado mais claro.",
   },
 ];
 
@@ -40,19 +40,41 @@ const segments = [
   "Indústria",
 ];
 
-const features = [
-  ["Compras", "Controle compras, custos e lucratividade dos produtos."],
-  ["Estoque", "Inventário, movimentações e análise inteligente de estoque."],
-  ["Vendas", "Orçamentos, vendas, trocas, devoluções e entrega futura."],
-  ["Ordem de serviço", "Gestão prática para oficinas, assistências e prestadores."],
-  ["Expedição", "Envio, recebimento e movimentação entre filiais."],
-  ["Financeiro", "Contas a pagar, receber, fluxo de caixa e DRE."],
-  ["Integração contábil", "Portal do contador para aproximar empresa e contabilidade."],
-  ["Fluxo de caixa", "Previsão para os próximos 30 dias em uma visão objetiva."],
-  ["NFe, NFCe e NFSe", "Emissão de documentos fiscais e integração com prefeituras."],
-  ["E-commerce", "Gestão de vendas online integrada às principais plataformas."],
-  ["WhatsApp", "Mensagens para aniversários, promoções e cobranças."],
-  ["DRE gerencial", "Visão 360 graus do negócio em um formato simples de acompanhar."],
+const solutionGroups = [
+  {
+    eyebrow: "Operação",
+    title: "Do pedido à entrega, tudo conversa.",
+    items: [
+      ["Compras", "Custos e lucratividade dos produtos sob controle."],
+      ["Estoque", "Inventário, movimentações e análise inteligente."],
+      ["Vendas", "Orçamentos, trocas, devoluções e entrega futura."],
+      ["Ordem de serviço", "Uma rotina prática para oficinas e prestadores."],
+      ["Expedição", "Envios, recebimentos e movimentação entre filiais."],
+    ],
+  },
+  {
+    eyebrow: "Financeiro",
+    title: "Enxergue agora. Planeje o próximo passo.",
+    items: [
+      ["Gestão financeira", "Contas a pagar e receber com controle diário."],
+      ["Fluxo de caixa", "Previsão objetiva para os próximos 30 dias."],
+      ["DRE gerencial", "Uma visão 360° simples de acompanhar."],
+    ],
+  },
+  {
+    eyebrow: "Fiscal",
+    title: "Documentos certos, sem complicação.",
+    items: [["NFe, NFCe e NFSe", "Emissão de documentos fiscais e integração com prefeituras."]],
+  },
+  {
+    eyebrow: "Conexões",
+    title: "A gestão acompanha onde você vende.",
+    items: [
+      ["Integração contábil", "Portal do contador aproximando empresa e contabilidade."],
+      ["E-commerce", "Vendas online integradas às principais plataformas."],
+      ["WhatsApp", "Mensagens para aniversários, promoções e cobranças."],
+    ],
+  },
 ];
 
 const values = [
@@ -65,9 +87,9 @@ const values = [
   "Simplicidade",
 ];
 
-export function meta({}: Route.MetaArgs) {
+export function meta(_args: Route.MetaArgs) {
   return [
-    { title: "Norte Brasil Digital | Sistemas de Gestão Empresarial" },
+    { title: "Norte Brasil Digital | Gestão que move o seu negócio" },
     {
       name: "description",
       content:
@@ -76,374 +98,312 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
+function ArrowIcon() {
+  return (
+    <svg viewBox="0 0 20 20" aria-hidden="true">
+      <path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" />
+    </svg>
+  );
+}
+
+function NetworkMap() {
+  return (
+    <div className="network-map" aria-label="Vendas, estoque, financeiro e fiscal integrados">
+      <svg className="network-lines" viewBox="0 0 560 500" aria-hidden="true">
+        <path className="route route-one" d="M60 55C200 70 155 205 270 230s105 155 235 165" />
+        <path className="route route-two" d="M65 420c135-20 110-120 210-145s120-135 225-180" />
+        <path className="route route-three" d="M55 250c120 0 145-40 215-20s140 30 235 15" />
+      </svg>
+      <div className="map-node node-sales">
+        <strong>Vendas</strong>
+      </div>
+      <div className="map-node node-stock">
+        <strong>Estoque</strong>
+      </div>
+      <div className="map-node node-finance">
+        <strong>Financeiro</strong>
+      </div>
+      <div className="map-node node-fiscal">
+        <strong>Fiscal</strong>
+      </div>
+      <div className="map-core">
+        <strong>uma só rotina</strong>
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const [name, setName] = useState("");
   const [business, setBusiness] = useState("");
   const [phone, setPhone] = useState("");
-  const [headerHidden, setHeaderHidden] = useState(false);
-
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-
-    function onScroll() {
-      const currentScrollY = window.scrollY;
-      const scrollingDown = currentScrollY > lastScrollY;
-
-      if (currentScrollY < 80) {
-        setHeaderHidden(false);
-      } else if (scrollingDown) {
-        setHeaderHidden(true);
-      } else {
-        setHeaderHidden(false);
-      }
-
-      lastScrollY = currentScrollY;
-    }
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
-    const message = [
-      baseMessage,
-      name && `Nome: ${name}`,
-      business && `Empresa: ${business}`,
-      phone && `Telefone: ${phone}`,
-    ]
-      .filter(Boolean)
-      .join("\n");
-
-    window.open(
-      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
-      "_blank",
-      "noopener,noreferrer",
-    );
+    window.open(buildWhatsappHref({ name, business, phone }), "_blank", "noopener,noreferrer");
   }
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-stone-50 pt-[76px] text-slate-950 sm:pt-[84px]">
-      <header
-        className={`fixed inset-x-0 top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur transition-transform duration-300 ${
-          headerHidden ? "-translate-y-full" : "translate-y-0"
-        }`}
-      >
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <a href="#inicio" className="flex items-center gap-3">
-            <img src={logoNbd} alt="Norte Brasil Digital" className="h-12 w-auto object-contain" />
+    <main>
+      <header className="site-header">
+        <nav className="site-nav" aria-label="Navegação principal">
+          <a href="#inicio" className="brand" aria-label="Norte Brasil Digital — início">
+            <span className="brand-mark">
+              <img src={logoNbdBlue} alt="" />
+            </span>
           </a>
 
-          <div className="hidden items-center gap-8 text-sm font-semibold text-slate-700 md:flex">
-            <a href="#sobre" className="transition hover:text-emerald-900">
-              Sobre
-            </a>
-            <a href="#solucoes" className="transition hover:text-emerald-900">
-              Soluções
-            </a>
-            <a href="#contato" className="transition hover:text-emerald-900">
-              Contato
-            </a>
+          <div className="nav-links">
+            <a href="#sobre">Sobre</a>
+            <a href="#solucoes">Soluções</a>
+            <a href="#contato">Contato</a>
           </div>
 
-          <a
-            href={whatsappHref}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-md bg-emerald-900 px-5 py-3 text-sm font-bold text-white transition hover:bg-emerald-950"
-          >
-            Fale com um consultor
+          <a href={whatsappHref} target="_blank" rel="noreferrer" className="button button-small">
+            Falar agora <ArrowIcon />
           </a>
         </nav>
       </header>
 
-      <section
-        id="inicio"
-        className="relative isolate border-b border-emerald-950/10 px-5 py-20 sm:py-24 lg:px-8"
-      >
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_10%,rgba(20,83,45,0.12),transparent_28%),linear-gradient(135deg,rgba(236,253,245,0.9),rgba(250,250,249,0.7)_45%,rgba(245,245,244,1))]" />
-        <div className="absolute right-0 top-20 -z-10 h-80 w-80 rounded-full bg-amber-200/20 blur-3xl" />
-
-        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
-          <div>
-            <p className="mb-6 inline-flex rounded-full border border-emerald-900/20 bg-white/70 px-4 py-2 text-sm font-bold text-emerald-900 shadow-sm">
-              +500 usuários ativos
-            </p>
-            <h1 className="max-w-4xl text-5xl font-bold leading-[0.98] text-emerald-950 sm:text-6xl lg:text-7xl">
-              Sistemas de gestão para negócios que precisam operar melhor.
-            </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-700">
-              A Norte Brasil Digital ajuda empresas de varejo e serviços a organizar processos,
-              vender com mais controle e acompanhar a gestão com simplicidade.
-            </p>
-
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={whatsappHref}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-lg bg-emerald-900 px-7 py-4 text-center text-sm font-bold uppercase text-white shadow-lg shadow-emerald-950/20 transition hover:bg-emerald-950"
-              >
-                Agendar reunião com analista
-              </a>
-              <a
-                href="#solucoes"
-                className="rounded-lg border border-emerald-950/20 bg-white/70 px-7 py-4 text-center text-sm font-bold uppercase text-emerald-950 transition hover:border-emerald-900"
-              >
-                Ver soluções
-              </a>
-            </div>
+      <section id="inicio" className="hero section-shell">
+        <div className="hero-glow" aria-hidden="true" />
+        <div className="hero-copy reveal reveal-one">
+          <p className="eyebrow">
+            <span>Parauapebas / PA</span> Tecnologia que fica por perto
+          </p>
+          <h1>
+            Gestão que dá <em>norte</em> ao seu negócio.
+          </h1>
+          <p className="hero-lead">
+            Sistemas completos para empresas que querem vender com controle, simplificar processos e
+            decidir com clareza.
+          </p>
+          <div className="hero-actions">
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noreferrer"
+              className="button button-primary"
+            >
+              Agendar demonstração <ArrowIcon />
+            </a>
+            <a href="#solucoes" className="text-link">
+              Explorar soluções <span>↓</span>
+            </a>
           </div>
+        </div>
 
-          <div className="rounded-lg border border-emerald-950/10 bg-white/80 p-5 shadow-2xl shadow-emerald-950/10 backdrop-blur">
-            <div className="rounded-lg bg-emerald-950 p-6 text-white">
-              <p className="text-sm font-bold uppercase tracking-[0.12em] text-emerald-100">
-                Gestão em uma só rotina
-              </p>
-              <div className="mt-8 grid gap-3">
-                {["Vendas", "Estoque", "Financeiro", "Fiscal"].map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center justify-between rounded-md border border-white/10 bg-white/10 p-4"
-                  >
-                    <span className="font-semibold">{item}</span>
-                    <span className="rounded-md bg-emerald-300/20 px-3 py-1 text-xs font-bold text-emerald-50">
-                      Integrado
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-8 rounded-lg bg-stone-50 p-5 text-emerald-950">
-                <p className="text-3xl font-black">14+</p>
-                <p className="mt-1 text-sm font-semibold text-slate-700">
-                  anos buscando soluções simples e seguras para empresas da região.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className="hero-visual reveal reveal-two">
+          <NetworkMap />
         </div>
       </section>
 
-      <section id="sobre" className="px-5 py-20 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="text-sm font-bold uppercase text-emerald-800">Quem somos</p>
-            <h2 className="mt-4 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
-              Tecnologia com proximidade para a gestão do dia a dia.
+      <section className="advantage-section">
+        <div className="section-shell">
+          <div className="section-intro inverse">
+            <h2>
+              Menos ruído.
+              <br />
+              <em>Mais negócio.</em>
             </h2>
-            <p className="mt-6 text-lg leading-8 text-slate-700">
-              Há mais de 14 anos no mercado, a Norte Brasil Digital busca soluções que ajudam o
-              empreendedor a gerir seu negócio com eficiência, segurança e simplicidade.
-            </p>
-          </div>
-
-          <div className="grid gap-8 border-l border-slate-200 pl-6">
-            <article>
-              <h3 className="text-2xl font-bold text-slate-950">Missão</h3>
-              <p className="mt-4 leading-7 text-slate-700">
-                Fornecer sistemas completos e intuitivos de gestão para varejo e serviços,
-                entregando tecnologia, segurança e agilidade nos processos do dia a dia.
-              </p>
-            </article>
-            <article>
-              <h3 className="text-2xl font-bold text-slate-950">Visão</h3>
-              <p className="mt-4 leading-7 text-slate-700">
-                Ser referência em sistema de gestão empresarial em nossa área de atuação, oferecendo
-                proximidade e simplicidade em soluções e atendimento.
-              </p>
-            </article>
-            <div className="flex flex-wrap gap-3">
-              {values.map((value) => (
-                <span
-                  key={value}
-                  className="border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-800"
-                >
-                  {value}
-                </span>
-              ))}
+            <div className="advantage-stats">
+              <div>
+                <strong>+500</strong>
+                <span>usuários ativos</span>
+              </div>
+              <div>
+                <strong>14+</strong>
+                <span>anos de mercado</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="bg-emerald-950 px-5 py-20 text-white lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
-            <p className="text-sm font-bold uppercase text-emerald-200">
-              Vantagens para o seu negócio
-            </p>
-            <h2 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
-              Soluções robustas, com atendimento simples de entender.
-            </h2>
-          </div>
-          <div className="mt-12 grid gap-x-10 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="advantage-grid">
             {advantages.map((advantage) => (
-              <article key={advantage.title} className="border-t border-white/20 pt-5">
-                <h3 className="text-xl font-bold">{advantage.title}</h3>
-                <p className="mt-4 leading-7 text-emerald-50/80">{advantage.text}</p>
+              <article key={advantage.title} className="advantage-card">
+                <h3>{advantage.title}</h3>
+                <p>{advantage.text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="solucoes" className="px-5 py-20 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
-            <div>
-              <p className="text-sm font-bold uppercase text-emerald-800">Ramos de atividade</p>
-              <h2 className="mt-4 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
-                Preparado para diferentes tipos de operação.
-              </h2>
-              <p className="mt-6 text-lg leading-8 text-slate-700">
-                A plataforma atende negócios que precisam de controle, velocidade e informações
-                claras para vender e administrar.
+      <section id="sobre" className="about-section section-shell">
+        <div className="about-heading">
+          <h2>Da nossa região para a rotina de quem faz acontecer.</h2>
+        </div>
+        <div className="about-story">
+          <p className="story-lead">
+            Há mais de 14 anos, a Norte Brasil Digital transforma tecnologia em uma ferramenta
+            próxima, segura e simples para o empreendedor.
+          </p>
+          <div className="purpose-grid">
+            <article>
+              <span>Missão</span>
+              <p>
+                Fornecer sistemas completos e intuitivos para varejo e serviços, com segurança e
+                agilidade.
               </p>
-            </div>
-            <div className="grid border-t border-slate-200 sm:grid-cols-2 lg:grid-cols-3">
-              {segments.map((segment) => (
-                <div
-                  key={segment}
-                  className="border-b border-slate-200 py-4 pr-6 font-semibold text-slate-800"
-                >
-                  {segment}
-                </div>
-              ))}
-            </div>
+            </article>
+            <article>
+              <span>Visão</span>
+              <p>
+                Ser referência em gestão empresarial na região por unir soluções simples e
+                atendimento próximo.
+              </p>
+            </article>
           </div>
+        </div>
+        <div className="values-track" aria-label="Nossos valores">
+          {values.map((value) => (
+            <span key={value}>{value}</span>
+          ))}
+        </div>
+      </section>
 
-          <div className="mt-20">
-            <div className="max-w-3xl">
-              <p className="text-sm font-bold uppercase text-emerald-800">Funcionalidades</p>
-              <h2 className="mt-4 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
-                O essencial para gerenciar o negócio em um só lugar.
-              </h2>
-            </div>
-            <div className="mt-10 grid border-t border-slate-200 md:grid-cols-2 lg:grid-cols-3">
-              {features.map(([title, text]) => (
-                <article key={title} className="border-b border-slate-200 py-6 pr-8">
-                  <h3 className="text-xl font-bold text-slate-950">{title}</h3>
-                  <p className="mt-3 leading-7 text-slate-700">{text}</p>
-                </article>
-              ))}
-            </div>
+      <section className="segments-section">
+        <div className="section-shell segments-layout">
+          <div className="segments-title">
+            <h2>
+              Seu ramo.
+              <br />
+              Seu ritmo.
+              <br />
+              <em>Um sistema.</em>
+            </h2>
+          </div>
+          <div className="segments-list">
+            {segments.map((segment) => (
+              <div key={segment}>{segment}</div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section id="contato" className="bg-stone-100 px-5 py-20 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <p className="text-sm font-bold uppercase text-emerald-800">Fale com um especialista</p>
-            <h2 className="mt-4 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
-              O próximo passo para uma gestão mais eficiente.
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-slate-700">
-              Agende uma demonstração ou converse com nossos analistas para entender, na prática,
-              como nossas soluções podem apoiar sua empresa.
+      <section id="solucoes" className="solutions-section section-shell">
+        <div className="solutions-heading">
+          <h2>Tudo o que a gestão precisa. Sem perder o fio.</h2>
+          <p>Da primeira compra ao fechamento do mês, cada parte da operação trabalha conectada.</p>
+        </div>
+        <div className="solution-groups">
+          {solutionGroups.map((group) => (
+            <article key={group.eyebrow} className="solution-group">
+              <div className="solution-group-title">
+                <span>{group.eyebrow}</span>
+                <h3>{group.title}</h3>
+              </div>
+              <div className="solution-items">
+                {group.items.map(([title, text]) => (
+                  <div key={title}>
+                    <h4>{title}</h4>
+                    <p>{text}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="contato" className="contact-section">
+        <div className="section-shell contact-layout">
+          <div className="contact-copy">
+            <h2>Vamos colocar sua gestão no caminho certo?</h2>
+            <p>
+              Converse com nossos analistas e veja como a solução funciona na prática da sua
+              empresa.
             </p>
-            <div className="mt-8 border-l-4 border-emerald-800 pl-6">
-              <p className="text-2xl font-bold text-slate-950">Confiança que gera resultados</p>
-              <blockquote className="mt-4 leading-7 text-slate-700">
-                "As soluções da Norte Brasil Digital foram um divisor de águas para nossa empresa. O
-                suporte é incrível e a tecnologia é exatamente o que o mercado precisa."
-              </blockquote>
-              <p className="mt-4 text-sm font-bold text-emerald-900">
-                Feliphe Silva, TechMaster Soluções Digitais
+            <blockquote>
+              <span>“</span>
+              <p>
+                As soluções da Norte Brasil Digital foram um divisor de águas para nossa empresa. O
+                suporte é incrível e a tecnologia é exatamente o que o mercado precisa.
               </p>
-            </div>
+              <cite>
+                Feliphe Silva
+                <br />
+                <small>TechMaster Soluções Digitais</small>
+              </cite>
+            </blockquote>
           </div>
 
-          <form onSubmit={handleSubmit} className="border border-slate-200 bg-white p-6 sm:p-8">
-            <div className="grid gap-5">
-              <label className="grid gap-2 text-sm font-bold text-slate-800">
-                Nome
-                <input
-                  value={name}
-                  onChange={(event) => setName(event.target.value)}
-                  className="rounded-md border border-slate-300 bg-white px-4 py-4 font-medium outline-none transition focus:border-emerald-700"
-                  placeholder="Seu nome"
-                />
-              </label>
-              <label className="grid gap-2 text-sm font-bold text-slate-800">
-                Empresa
-                <input
-                  value={business}
-                  onChange={(event) => setBusiness(event.target.value)}
-                  className="rounded-md border border-slate-300 bg-white px-4 py-4 font-medium outline-none transition focus:border-emerald-700"
-                  placeholder="Nome da empresa"
-                />
-              </label>
-              <label className="grid gap-2 text-sm font-bold text-slate-800">
-                WhatsApp
-                <input
-                  value={phone}
-                  onChange={(event) => setPhone(event.target.value)}
-                  className="rounded-md border border-slate-300 bg-white px-4 py-4 font-medium outline-none transition focus:border-emerald-700"
-                  placeholder="(94) 00000-0000"
-                />
-              </label>
-              <button className="mt-2 rounded-md bg-emerald-900 px-7 py-4 text-sm font-bold uppercase text-white transition hover:bg-emerald-950">
-                Agendar demonstração
-              </button>
-              <p className="text-sm leading-6 text-slate-500">
-                O botão abre uma conversa no WhatsApp com as informações preenchidas. Nenhum dado é
-                enviado para um servidor nesta página.
-              </p>
+          <form onSubmit={handleSubmit} className="contact-form">
+            <div className="form-topline">
+              <span>Agende uma demonstração</span>
             </div>
+            <label>
+              <span>Seu nome</span>
+              <input
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                placeholder="Como podemos chamar você?"
+                autoComplete="name"
+              />
+            </label>
+            <label>
+              <span>Empresa</span>
+              <input
+                value={business}
+                onChange={(event) => setBusiness(event.target.value)}
+                placeholder="Qual é o seu negócio?"
+                autoComplete="organization"
+              />
+            </label>
+            <label>
+              <span>WhatsApp</span>
+              <input
+                type="tel"
+                inputMode="tel"
+                value={phone}
+                onChange={(event) => setPhone(event.target.value)}
+                placeholder="(94) 00000-0000"
+                autoComplete="tel"
+              />
+            </label>
+            <button className="button button-submit">
+              Conversar pelo WhatsApp <ArrowIcon />
+            </button>
           </form>
         </div>
       </section>
 
-      <footer className="bg-emerald-950 px-5 py-12 text-white lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
-          <div>
-            <img src={logoNbd} alt="Norte Brasil Digital" className="h-16 w-auto object-contain" />
-            <p className="mt-4 max-w-md leading-7 text-emerald-50/75">
-              Transformando ideias em soluções digitais para impulsionar o crescimento do seu
-              negócio.
-            </p>
-            <p className="mt-6 text-sm leading-6 text-emerald-50/70">
-              Rua Santarém, 817 - Bairro Maranhão
-              <br />
-              Parauapebas, PA - CEP: 68515-000
-            </p>
-          </div>
-          <div>
-            <p className="font-black uppercase tracking-[0.2em] text-emerald-200">Links úteis</p>
-            <div className="mt-5 grid gap-3 text-emerald-50/80">
-              <a href="#sobre" className="hover:text-white">
-                Sobre nós
-              </a>
-              <a href="#solucoes" className="hover:text-white">
-                Soluções
-              </a>
-              <a href="#contato" className="hover:text-white">
-                Contato
-              </a>
+      <footer className="site-footer">
+        <div className="section-shell footer-grid">
+          <div className="footer-brand">
+            <div className="footer-logo">
+              <img src={logoNbdWhite} alt="Norte Brasil Digital" />
             </div>
           </div>
           <div>
-            <p className="font-black uppercase tracking-[0.2em] text-emerald-200">Contato</p>
-            <div className="mt-5 grid gap-3 text-emerald-50/80">
-              <a href="mailto:nortebrasildigital@gmail.com">nortebrasildigital@gmail.com</a>
-              <a href={whatsappHref} target="_blank" rel="noreferrer">
-                (94) 99163-6639
-              </a>
-              <a
-                href="https://www.instagram.com/nortebrasildigital"
-                target="_blank"
-                rel="noreferrer"
-              >
-                @nortebrasildigital
-              </a>
-            </div>
+            <h3>Encontre</h3>
+            <a href="#sobre">Sobre nós</a>
+            <a href="#solucoes">Soluções</a>
+            <a href="#contato">Contato</a>
           </div>
+          <div>
+            <h3>Converse</h3>
+            <a href="mailto:nortebrasildigital@gmail.com">nortebrasildigital@gmail.com</a>
+            <a href={whatsappHref} target="_blank" rel="noreferrer">
+              (94) 99163-6639
+            </a>
+            <a href="https://www.instagram.com/nortebrasildigital" target="_blank" rel="noreferrer">
+              @nortebrasildigital
+            </a>
+          </div>
+          <address>
+            Rua Santarém, 817
+            <br />
+            Bairro Maranhão
+            <br />
+            Parauapebas, PA
+            <br />
+            CEP 68515-000
+          </address>
         </div>
-        <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-emerald-50/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Norte Brasil Digital. Todos os direitos reservados.</p>
-          <p>CNPJ: 17.735.149/0001-11</p>
+        <div className="section-shell footer-bottom">
+          <span>© 2026 Norte Brasil Digital</span>
+          <span>CNPJ 17.735.149/0001-11</span>
+          <span>Todos os direitos reservados</span>
         </div>
       </footer>
     </main>
