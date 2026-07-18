@@ -1,10 +1,19 @@
 import { reactRouter } from "@react-router/dev/vite";
 import tailwindcss from "@tailwindcss/vite";
 import netlifyReactRouter from "@netlify/vite-plugin-react-router";
-import { defineConfig } from "vite";
+import { defineConfig, lazyPlugins } from "vite-plus";
 
 export default defineConfig({
-  plugins: [tailwindcss(), reactRouter(), netlifyReactRouter()],
+  staged: {
+    "*": "vp check --fix",
+  },
+  fmt: {},
+  lint: {
+    jsPlugins: [{ name: "vite-plus", specifier: "vite-plus/oxlint-plugin" }],
+    rules: { "vite-plus/prefer-vite-plus-imports": "error" },
+    options: { typeAware: true, typeCheck: true },
+  },
+  plugins: lazyPlugins(() => [tailwindcss(), reactRouter(), netlifyReactRouter()]),
   resolve: {
     tsconfigPaths: true,
   },
