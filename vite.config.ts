@@ -1,6 +1,5 @@
 import { reactRouter } from "@react-router/dev/vite";
 import tailwindcss from "@tailwindcss/vite";
-import netlifyReactRouter from "@netlify/vite-plugin-react-router";
 import { defineConfig, lazyPlugins } from "vite-plus";
 
 export default defineConfig({
@@ -13,7 +12,7 @@ export default defineConfig({
     rules: { "vite-plus/prefer-vite-plus-imports": "error" },
     options: { typeAware: true, typeCheck: true },
   },
-  plugins: lazyPlugins(() => [tailwindcss(), reactRouter(), netlifyReactRouter()]),
+  plugins: lazyPlugins(() => [tailwindcss(), reactRouter()]),
   resolve: {
     tsconfigPaths: true,
   },

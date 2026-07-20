@@ -5,16 +5,15 @@
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
-    "start": "react-router-serve ./build/server/index.js",
+    "preview": "pnpm build && wrangler pages dev ./build/client",
+    "deploy": "pnpm build && wrangler pages deploy ./build/client --project-name norte-brasil-digital",
     "typecheck": "react-router typegen && tsc",
     "prepare": "vp config"
   },
   "dependencies": {
-    "@netlify/vite-plugin-react-router": "^3.1.1",
     "@react-router/fs-routes": "7.14.0",
     "@react-router/node": "7.14.0",
-    "@react-router/serve": "7.14.0",
-    "isbot": "^5.1.36",
+    "isbot": "^5.1.38",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router": "7.14.0"
@@ -28,7 +27,8 @@
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
     "vite": "catalog:",
-    "vite-plus": "catalog:"
+    "vite-plus": "catalog:",
+    "wrangler": "^4.111.0"
   },
   "devEngines": {
     "packageManager": {
