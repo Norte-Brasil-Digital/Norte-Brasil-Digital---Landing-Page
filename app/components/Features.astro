@@ -1,0 +1,191 @@
+---
+import Icon from "./Icon.astro";
+const modules = [
+  {
+    icon: "store" as const,
+    number: "01",
+    title: "Vendas e PDV",
+    text: "Mais organização do atendimento ao registro da venda. Tenha as informações do balcão como parte da gestão da sua loja.",
+    detail: "Cuide de cada venda.",
+  },
+  {
+    icon: "box" as const,
+    number: "02",
+    title: "Controle de estoque",
+    text: "Acompanhe seus produtos e a movimentação das mercadorias. Tenha uma base mais clara para planejar a reposição.",
+    detail: "Saiba o que sua loja tem.",
+  },
+  {
+    icon: "wallet" as const,
+    number: "03",
+    title: "Gestão financeira",
+    text: "Organize as informações financeiras do negócio e acompanhe entradas e saídas para cuidar melhor da rotina da loja.",
+    detail: "Enxergue o movimento do dinheiro.",
+  },
+  {
+    icon: "chart" as const,
+    number: "04",
+    title: "Relatórios de gestão",
+    text: "Consulte informações do seu negócio e acompanhe os resultados. Transforme os registros da operação em apoio para suas decisões.",
+    detail: "Decida com mais informação.",
+  },
+];
+---
+
+<section id="funcionalidades" class="section">
+  <div class="shell">
+    <div class="features-heading">
+      <div class="section-intro">
+        <p class="eyebrow">CONHEÇA O NBD SYS</p><h2>
+          O dia a dia da sua loja.<br />Uma gestão mais completa.
+        </h2>
+      </div>
+      <p>
+        Do primeiro atendimento à análise dos resultados, tenha o essencial para
+        organizar seu negócio.
+      </p>
+    </div>
+    <div class="features-grid">
+      {
+        modules.map((module) => (
+          <article class="feature">
+            <>
+              <div class="feature-top">
+                <>
+                  <span class="feature-icon">
+                    <Icon name={module.icon} size={28} />
+                  </span>
+                  <span class="feature-number">{module.number}</span>
+                </>
+              </div>
+              <h3>{module.title}</h3>
+              <p>{module.text}</p>
+              <div class="feature-detail">
+                <span />
+                {module.detail}
+              </div>
+            </>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+<style>
+  .features-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 46px;
+  }
+  .features-heading > p {
+    max-width: 315px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    padding-bottom: 5px;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .feature {
+    padding: 28px 23px;
+    border-right: 1px solid var(--line);
+  }
+  .feature:last-child {
+    border: none;
+  }
+  .feature-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+  }
+  .feature-icon {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 11px;
+    background: #eef3fa;
+    color: var(--blue-dark);
+  }
+  .feature:nth-child(2) .feature-icon,
+  .feature:nth-child(3) .feature-icon {
+    background: #edf5ed;
+    color: var(--green);
+  }
+  .feature:last-child .feature-icon {
+    background: #fff8da;
+  }
+  .feature-number {
+    color: #7c889a;
+    font-size: 0.65rem;
+  }
+  h3 {
+    font-size: 1.05rem;
+  }
+  .feature > p {
+    color: var(--muted);
+    font-size: 0.8rem;
+    line-height: 1.9;
+    margin-top: 14px;
+  }
+  .feature-detail {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.63rem;
+    font-weight: 500;
+    color: var(--blue-dark);
+    margin-top: 27px;
+  }
+  .feature-detail > span {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+  }
+  @media (max-width: 1000px) {
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .feature:nth-child(2) {
+      border-right: 0;
+    }
+    .feature:nth-child(-n + 2) {
+      border-bottom: 1px solid var(--line);
+    }
+  }
+  @media (max-width: 760px) {
+    .features-heading {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .features-heading > p {
+      max-width: 480px;
+    }
+  }
+  @media (max-width: 480px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+    .feature {
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .feature-top {
+      margin-bottom: 20px;
+    }
+    .feature-detail {
+      margin-top: 18px;
+    }
+  }
+</style>

@@ -1,0 +1,161 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/logo-nbd-blue-full.png";
+import Icon from "./Icon.astro";
+import { buildWhatsappHref } from "../lib/whatsapp";
+---
+
+<footer class="footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <div class="brand-line">
+        <Image
+          src={logo}
+          width={94}
+          format="webp"
+          alt="Norte Brasil Digital"
+          loading="lazy"
+        /><span class="footer-product"
+          >NBD SYS<small>Gestão inteligente</small></span
+        >
+      </div><p>
+        Tecnologia para o varejo.<br />Proximidade para o seu negócio.
+      </p>
+    </div>
+    <div class="footer-links">
+      <h3>Conheça</h3><a href="/#funcionalidades">Funcionalidades</a><a
+        href="/#sobre">Norte Brasil Digital</a
+      ><a href="/#duvidas">Perguntas frequentes</a><a href="/#contato"
+        >Solicitar demonstração</a
+      >
+    </div>
+    <div class="footer-links">
+      <h3>Converse com a gente</h3><a
+        href={buildWhatsappHref()}
+        target="_blank"
+        rel="noopener noreferrer"
+        >(94) 99163-6639 <Icon name="arrow" size={13} /></a
+      ><a href="mailto:nortebrasildigital@gmail.com"
+        >nortebrasildigital@gmail.com</a
+      ><a
+        href="https://www.instagram.com/nortebrasildigital"
+        target="_blank"
+        rel="noopener noreferrer"
+        >@nortebrasildigital <Icon name="arrow" size={13} /></a
+      >
+    </div>
+    <div class="footer-address">
+      <h3>Estamos por aqui</h3><address>
+        Rua Santarém, 817<br />Bairro Maranhão<br />Parauapebas · PA<br />CEP
+        68515-000
+      </address>
+    </div>
+  </div>
+  <div class="shell footer-bottom">
+    <span
+      >© {new Date().getFullYear()} Norte Brasil Digital. Todos os direitos reservados.</span
+    ><span>CNPJ 17.735.149/0001-11</span><a href="/#inicio"
+      >Voltar ao início ↑</a
+    >
+  </div>
+</footer>
+<style>
+  .footer {
+    background: #fafbfd;
+    padding-top: 62px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1.2fr 1fr;
+    gap: 40px;
+    padding-bottom: 48px;
+  }
+  .brand-line {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .brand-line :global(img) {
+    width: 74px;
+    mix-blend-mode: multiply;
+  }
+  .footer-product {
+    border-left: 1px solid var(--line);
+    padding-left: 16px;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--blue-dark);
+  }
+  .footer-product small {
+    display: block;
+    font-family: "Inter", sans-serif;
+    font-size: 0.5rem;
+    font-weight: 400;
+    letter-spacing: 0.015em;
+  }
+  .footer-brand p {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 18px;
+  }
+  .footer h3 {
+    font-family: "Inter", sans-serif;
+    font-size: 0.73rem;
+    letter-spacing: 0;
+    margin-bottom: 18px;
+  }
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .footer-links h3 {
+    margin-bottom: 10px;
+  }
+  .footer-links a,
+  address {
+    color: var(--muted);
+    font-size: 0.68rem;
+    line-height: 1.9;
+    font-style: normal;
+    overflow-wrap: anywhere;
+  }
+  .footer-links a:hover,
+  .footer-bottom a:hover {
+    color: var(--blue-dark);
+    text-decoration: underline;
+  }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-block: 24px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.59rem;
+  }
+  @media (max-width: 1000px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-bottom {
+      flex-wrap: wrap;
+    }
+  }
+  @media (max-width: 480px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-links a,
+    address {
+      font-size: 0.8rem;
+    }
+  }
+</style>

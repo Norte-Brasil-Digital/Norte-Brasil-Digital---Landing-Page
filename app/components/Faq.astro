@@ -1,0 +1,119 @@
+---
+import Icon from "./Icon.astro";
+const questions = [
+  {
+    question: "Para quem é o NBD SYS?",
+    answer:
+      "O NBD SYS é um sistema de gestão para lojistas de diferentes segmentos do varejo. A Norte Brasil Digital atende Parauapebas e região. Converse com a equipe para apresentar as necessidades da sua loja.",
+  },
+  {
+    question: "Quais recursos o sistema oferece?",
+    answer:
+      "O NBD SYS conta com vendas e PDV, controle de estoque, gestão financeira e relatórios de gestão. Na demonstração, você pode conhecer esses recursos e conversar sobre a sua operação.",
+  },
+  {
+    question: "Onde fica a Norte Brasil Digital?",
+    answer:
+      "Estamos na Rua Santarém, 817, Bairro Maranhão, em Parauapebas, Pará. Você também pode falar com a nossa equipe pelo WhatsApp (94) 99163-6639.",
+  },
+  {
+    question: "Como posso solicitar uma demonstração?",
+    answer:
+      "Clique em “Solicitar demonstração” ou preencha os campos de contato abaixo. Você será direcionado ao WhatsApp para conversar com a equipe sobre a apresentação do NBD SYS.",
+  },
+];
+---
+
+<section id="duvidas" class="section faq-section">
+  <div class="shell faq-layout">
+    <div class="section-intro">
+      <p class="eyebrow">ANTES DE COMEÇAR</p><h2>
+        Vamos esclarecer<br />suas dúvidas.
+      </h2><p>
+        Quer entender como o NBD SYS se encaixa na sua loja? A conversa começa
+        por aqui.
+      </p>
+    </div><div class="faq-list">
+      {
+        questions.map((item) => (
+          <details>
+            <>
+              <summary>
+                {item.question}
+                <span class="faq-icon">
+                  <Icon name="plus" size={19} />
+                </span>
+              </summary>
+              <p>{item.answer}</p>
+            </>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+<style>
+  .faq-section {
+    border-top: 1px solid var(--line);
+    padding-top: 80px;
+  }
+  .faq-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 85px;
+  }
+  .section-intro > p:last-child {
+    font-size: 0.9rem;
+    max-width: 340px;
+  }
+  details {
+    border-bottom: 1px solid var(--line);
+  }
+  details:first-child {
+    border-top: 1px solid var(--line);
+  }
+  summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 23px 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--blue-dark);
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-icon {
+    width: 29px;
+    height: 29px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    background: var(--surface);
+    border-radius: 50%;
+  }
+  details[open] .faq-icon {
+    transform: rotate(45deg);
+    background: #edf5ed;
+    color: var(--green);
+  }
+  details > p {
+    margin: -3px 30px 25px 0;
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.85;
+  }
+  @media (max-width: 900px) {
+    .faq-layout {
+      grid-template-columns: 1fr;
+      gap: 35px;
+    }
+    .section-intro > p:last-child {
+      max-width: 540px;
+    }
+  }
+</style>

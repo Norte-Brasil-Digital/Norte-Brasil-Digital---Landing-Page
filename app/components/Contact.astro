@@ -1,0 +1,294 @@
+---
+import Icon from "./Icon.astro";
+import { buildWhatsappHref } from "../lib/whatsapp";
+---
+
+<section id="contato" class="contact section dark">
+  <div class="shell contact-layout">
+    <div class="contact-copy">
+      <p class="eyebrow">O PRÓXIMO PASSO É UMA CONVERSA</p><h2>
+        Sua loja tem potencial.<br /><span>Vamos cuidar da gestão?</span>
+      </h2><p>
+        Conheça o NBD SYS e descubra como organizar a rotina do seu negócio.
+        Fale com a Norte Brasil Digital e solicite uma demonstração.
+      </p><a class="contact-phone" href="tel:+5594991636639"
+        ><span><Icon name="phone" size={22} /></span><div>
+          <small>FALE COM NOSSA EQUIPE</small><strong>(94) 99163-6639</strong>
+        </div></a
+      ><p class="contact-location">
+        <Icon name="pin" size={16} /> Parauapebas e região · Pará
+      </p>
+    </div>
+    <div class="contact-card">
+      <div class="form-heading">
+        <span class="form-icon"><Icon name="message" size={23} /></span><div>
+          <h3>Conheça o NBD SYS</h3><p>Conte um pouco sobre sua loja.</p>
+        </div>
+      </div>
+      <form
+        id="demo-form"
+        action="https://wa.me/5594991636639"
+        method="get"
+        hidden
+      >
+        <div class="field">
+          <label for="contact-name">Seu nome <span>(opcional)</span></label
+          ><input
+            id="contact-name"
+            name="name"
+            autocomplete="name"
+            placeholder="Como podemos chamar você?"
+            maxlength="120"
+          />
+        </div>
+        <div class="field">
+          <label for="contact-business"
+            >Nome da loja <span>(opcional)</span></label
+          ><input
+            id="contact-business"
+            name="business"
+            autocomplete="organization"
+            placeholder="Qual é o nome do seu negócio?"
+            maxlength="160"
+          />
+        </div>
+        <div class="field">
+          <label for="contact-phone">Seu WhatsApp <span>(opcional)</span></label
+          ><input
+            id="contact-phone"
+            name="phone"
+            type="tel"
+            inputmode="tel"
+            autocomplete="tel"
+            placeholder="(94) 99999-9999"
+            maxlength="30"
+          />
+        </div>
+        <button class="button button-primary" type="submit"
+          >Solicitar demonstração <Icon name="arrow" size={19} /></button
+        >
+        <p class="form-note">
+          O WhatsApp será aberto com sua mensagem preenchida. Você revisa e
+          envia a mensagem por lá.
+        </p>
+      </form>
+      <a
+        id="direct-contact"
+        class="text-link"
+        href={buildWhatsappHref()}
+        target="_blank"
+        rel="noopener noreferrer"
+        >Prefiro conversar diretamente <Icon name="arrow" size={16} /></a
+      >
+      <noscript
+        ><p class="form-note">
+          Solicite sua demonstração pelo link acima. Ele funciona mesmo com o
+          JavaScript desativado.
+        </p></noscript
+      >
+    </div>
+  </div>
+</section>
+<script>
+  import { buildWhatsappHref } from "../lib/whatsapp";
+  const form = document.querySelector<HTMLFormElement>("#demo-form");
+  if (form) {
+    form.hidden = false;
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const fields = new FormData(form);
+      const href = buildWhatsappHref({
+        name: String(fields.get("name") ?? ""),
+        business: String(fields.get("business") ?? ""),
+        phone: String(fields.get("phone") ?? ""),
+      });
+      // Only navigate. The visitor reviews and sends the message in WhatsApp.
+      // No contact data is stored, sent to analytics, or included in our URL.
+      window.location.assign(href);
+    });
+  }
+</script>
+<style>
+  .contact {
+    position: relative;
+    background: var(--blue-dark);
+    overflow: hidden;
+  }
+  .contact::before {
+    content: "";
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    border: 1px solid #ffffff0c;
+    border-radius: 50%;
+    left: -330px;
+    bottom: -450px;
+    box-shadow:
+      0 0 0 70px #ffffff03,
+      0 0 0 140px #ffffff02;
+    pointer-events: none;
+  }
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 105px;
+    align-items: center;
+    position: relative;
+  }
+  .contact .eyebrow {
+    color: var(--yellow);
+    font-size: 0.61rem;
+  }
+  .contact h2 {
+    color: white;
+    font-size: clamp(2rem, 3.2vw, 2.7rem);
+  }
+  .contact h2 span {
+    color: #b9cdec;
+  }
+  .contact-copy > p:not(.eyebrow):not(.contact-location) {
+    color: #d0dbed;
+    margin-top: 24px;
+    max-width: 420px;
+    font-size: 0.91rem;
+    line-height: 1.9;
+  }
+  .contact-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 38px;
+  }
+  .contact-phone > span {
+    background: #ffffff10;
+    border: 1px solid #ffffff25;
+    color: var(--yellow);
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+  }
+  .contact-phone small {
+    display: block;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    color: #c4d2e9;
+  }
+  .contact-phone strong {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: white;
+  }
+  .contact-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #c4d2e9;
+    font-size: 0.72rem;
+    margin-top: 24px;
+  }
+  .contact-card {
+    background: white;
+    color: var(--ink);
+    padding: 35px;
+    border-radius: 14px;
+  }
+  .contact-card :focus-visible {
+    outline-color: var(--green);
+  }
+  .form-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 25px;
+  }
+  .form-icon {
+    display: grid;
+    place-items: center;
+    width: 47px;
+    height: 47px;
+    border-radius: 10px;
+    background: #edf5ed;
+    color: var(--green);
+  }
+  .form-heading h3 {
+    font-size: 1.08rem;
+  }
+  .form-heading p {
+    color: var(--muted);
+    font-size: 0.75rem;
+    margin-top: 4px;
+  }
+  .field {
+    margin-bottom: 17px;
+  }
+  label {
+    display: block;
+    color: var(--blue-dark);
+    font-size: 0.73rem;
+    font-weight: 600;
+    margin-bottom: 7px;
+  }
+  label > span {
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 0.66rem;
+  }
+  input {
+    width: 100%;
+    min-height: 47px;
+    border: 1px solid #d5dce6;
+    border-radius: 5px;
+    color: var(--ink);
+    background: #fafbfd;
+    padding: 10px 13px;
+    font-size: 0.8rem;
+  }
+  input::placeholder {
+    color: #657083;
+    opacity: 1;
+  }
+  .contact-card .button {
+    width: 100%;
+    margin-top: 3px;
+  }
+  .form-note {
+    color: var(--muted);
+    font-size: 0.64rem;
+    text-align: center;
+    margin-top: 13px;
+    line-height: 1.8;
+  }
+  .contact-card .text-link {
+    display: flex;
+    justify-content: center;
+    font-size: 0.7rem;
+    margin-top: 22px;
+    padding-top: 19px;
+    border-top: 1px solid var(--line);
+  }
+  @media (max-width: 1000px) {
+    .contact-layout {
+      gap: 50px;
+    }
+  }
+  @media (max-width: 800px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .contact-card {
+      max-width: 550px;
+      width: 100%;
+    }
+  }
+  @media (max-width: 480px) {
+    .contact-card {
+      padding: 25px 20px;
+    }
+    input {
+      font-size: 16px;
+    }
+  }
+</style>

@@ -1,5 +1,5 @@
 export const whatsappNumber = "5594991636639";
-export const baseMessage = "Olá, gostaria de agendar uma demonstração com a Norte Brasil Digital.";
+export const baseMessage = "Olá! Gostaria de solicitar uma demonstração do NBD SYS.";
 
 type ContactDetails = {
   name?: string;

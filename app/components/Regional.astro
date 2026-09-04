@@ -1,0 +1,162 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/logo-nbd-blue-full.png";
+import Icon from "./Icon.astro";
+import { buildWhatsappHref } from "../lib/whatsapp";
+---
+
+<section id="sobre" class="section regional">
+  <div class="shell regional-layout">
+    <div class="brand-panel">
+      <div class="brand-panel-top">
+        <span>NOSSA ORIGEM. NOSSA CONEXÃO.</span><Icon name="pin" size={19} />
+      </div>
+      <Image
+        src={logo}
+        alt="Norte Brasil Digital"
+        widths={[300, 600]}
+        sizes="(max-width: 600px) 240px, 300px"
+        width={300}
+        format="webp"
+        loading="lazy"
+      />
+      <div class="brand-panel-bottom">
+        <span class="regional-dot"></span> Parauapebas, Pará <span>BRASIL</span>
+      </div>
+    </div>
+    <div class="regional-copy section-intro">
+      <p class="eyebrow">TECNOLOGIA COM PROXIMIDADE</p>
+      <h2>Da nossa região.<br />Ao lado do seu negócio.</h2>
+      <p>
+        A Norte Brasil Digital está em Parauapebas e apresenta o NBD SYS para
+        quem faz o varejo acontecer na nossa região.
+      </p>
+      <p>
+        Antes de falar de sistema, queremos conhecer sua loja. Converse com
+        nossa equipe sobre a sua rotina e veja como os recursos do NBD SYS podem
+        ajudar na gestão.
+      </p>
+      <div id="segmentos" class="regional-note">
+        <Icon name="store" size={23} /><span
+          >Para lojistas de diferentes segmentos do varejo de Parauapebas e
+          região.</span
+        >
+      </div>
+      <a
+        href={buildWhatsappHref()}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-link"
+        >Conheça o NBD SYS com nossa equipe <Icon name="arrow" size={18} /></a
+      >
+    </div>
+  </div>
+</section>
+<style>
+  .regional-layout {
+    display: grid;
+    grid-template-columns: 0.95fr 1fr;
+    gap: 90px;
+    align-items: center;
+  }
+  .brand-panel {
+    border-radius: 16px;
+    background: #f5f7fa;
+    border: 1px solid var(--line);
+    padding: 27px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .brand-panel::before {
+    content: "";
+    width: 100px;
+    height: 5px;
+    background: linear-gradient(
+      90deg,
+      var(--blue-dark) 33%,
+      var(--green) 33%,
+      var(--green) 66%,
+      var(--yellow) 66%
+    );
+    position: absolute;
+    top: 0;
+    left: 32px;
+  }
+  .brand-panel-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.55rem;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    color: var(--muted);
+  }
+  .brand-panel-top :global(svg) {
+    color: var(--green);
+  }
+  .brand-panel :global(img) {
+    margin: 44px auto;
+    width: 300px;
+    mix-blend-mode: multiply;
+  }
+  .brand-panel-bottom {
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--blue-dark);
+    font-size: 0.68rem;
+  }
+  .brand-panel-bottom > span:last-child {
+    margin-left: auto;
+    color: var(--muted);
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+  }
+  .regional-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+  }
+  .regional-copy > p:not(.eyebrow) {
+    color: var(--muted);
+    margin-top: 20px;
+    font-size: 0.9rem;
+    line-height: 1.85;
+  }
+  .regional-note {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-left: 3px solid var(--yellow);
+    padding: 12px 0 12px 18px;
+    margin-top: 24px;
+    color: var(--blue-dark);
+    font-size: 0.8rem;
+  }
+  .regional-copy .text-link {
+    margin-top: 28px;
+    font-size: 0.78rem;
+  }
+  @media (max-width: 900px) {
+    .regional-layout {
+      gap: 42px;
+      grid-template-columns: 1fr;
+    }
+    .brand-panel {
+      max-width: 560px;
+      width: 100%;
+    }
+  }
+  @media (max-width: 480px) {
+    .brand-panel {
+      padding-inline: 23px;
+    }
+    .brand-panel :global(img) {
+      width: 240px;
+      margin-block: 35px;
+    }
+  }
+</style>

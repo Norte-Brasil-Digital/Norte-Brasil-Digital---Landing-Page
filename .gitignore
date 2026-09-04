@@ -2,9 +2,11 @@
 .env
 /node_modules/
 
-# React Router
-/.react-router/
+# Astro
+/.astro/
 /build/
 /.wrangler/
 
 /tmp/
+/test-results/
+/playwright-report/

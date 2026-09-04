@@ -7,6 +7,13 @@ describe("buildWhatsappHref", () => {
 
     expect(url.origin + url.pathname).toBe(`https://wa.me/${whatsappNumber}`);
     expect(url.searchParams.get("text")).toBe(baseMessage);
+    expect(url.searchParams.get("text")).toBe(
+      "Olá! Gostaria de solicitar uma demonstração do NBD SYS.",
+    );
+  });
+
+  it("uses the demonstration message when all optional fields are empty", () => {
+    expect(buildWhatsappHref({ name: " ", business: "", phone: "  " })).toBe(buildWhatsappHref());
   });
 
   it("adds only the contact details that were filled", () => {

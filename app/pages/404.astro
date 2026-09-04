@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Icon from "../components/Icon.astro";
+---
+
+<Layout
+  title="Página não encontrada | NBD SYS"
+  description="Esta página não foi encontrada. Volte ao início para conhecer o NBD SYS, sistema de gestão para o varejo."
+  noindex
+>
+  <Header />
+  <main id="conteudo" class="shell not-found">
+    <p class="eyebrow">ERRO 404</p><h1>
+      Essa página não<br />está por aqui.
+    </h1><p>
+      O endereço pode ter mudado. Volte ao início para conhecer o NBD SYS ou
+      falar com a nossa equipe.
+    </p><a href="/" class="button button-primary"
+      >Voltar ao início <Icon name="arrow" size={18} /></a
+    >
+  </main>
+  <Footer />
+</Layout>
+<style>
+  .not-found {
+    padding-block: 100px;
+  }
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+  }
+  .not-found > p:not(.eyebrow) {
+    color: var(--muted);
+    max-width: 470px;
+    margin-block: 24px;
+  }
+</style>

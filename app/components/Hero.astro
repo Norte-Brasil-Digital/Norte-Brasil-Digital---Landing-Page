@@ -1,0 +1,541 @@
+---
+import Icon from "./Icon.astro";
+import { buildWhatsappHref } from "../lib/whatsapp";
+---
+
+<section id="inicio" class="hero">
+  <div class="shell hero-layout">
+    <div class="hero-copy">
+      <p class="location">
+        <span></span> TECNOLOGIA PARA O VAREJO DA NOSSA REGIÃO
+      </p>
+      <h1>Sua loja sob controle.<br />Sua gestão <em>mais inteligente.</em></h1>
+      <p class="lead">
+        Organize vendas, estoque e financeiro e acompanhe os resultados do seu
+        negócio com o <strong>NBD SYS.</strong> Gestão para o varejo de Parauapebas
+        e região.
+      </p>
+      <div class="hero-actions">
+        <a
+          href={buildWhatsappHref()}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button button-primary"
+          >Solicitar demonstração <Icon name="arrow" size={19} /></a
+        >
+        <a href="#funcionalidades" class="text-link"
+          >Conhecer funcionalidades <Icon name="down" size={16} /></a
+        >
+      </div>
+      <p class="hero-signature">
+        <span class="signature-line"></span> Uma solução <strong
+          >Norte Brasil Digital</strong
+        >
+      </p>
+    </div>
+    <div
+      class="hero-art dark"
+      role="img"
+      aria-label="Ilustração dos quatro módulos do NBD SYS: vendas e PDV, estoque, financeiro e relatórios."
+    >
+      <div class="art-grid" aria-hidden="true"></div>
+      <div class="art-top">
+        <span class="art-dot"></span> GESTÃO QUE CONECTA SUA LOJA <span
+          class="art-cross">+</span
+        >
+      </div>
+      <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+      <div class="core">
+        <span class="core-symbol" aria-hidden="true"><i></i><i></i><i></i></span
+        ><strong>NBD<span>SYS</span></strong><small>Gestão inteligente</small>
+      </div>
+      <div class="module module-sales">
+        <span class="module-icon"><Icon name="store" size={24} /></span><div>
+          <small>NO BALCÃO</small><strong>Vendas e PDV</strong>
+        </div>
+      </div>
+      <div class="module module-stock">
+        <span class="module-icon"><Icon name="box" size={24} /></span><div>
+          <small>NA OPERAÇÃO</small><strong>Estoque</strong>
+        </div>
+      </div>
+      <div class="module module-finance">
+        <span class="module-icon"><Icon name="wallet" size={24} /></span><div>
+          <small>NO DIA A DIA</small><strong>Financeiro</strong>
+        </div>
+      </div>
+      <div class="module module-reports">
+        <span class="module-icon"><Icon name="chart" size={24} /></span><div>
+          <small>NAS DECISÕES</small><strong>Relatórios</strong>
+        </div>
+      </div>
+      <div class="art-bottom">
+        <span>Uma visão mais clara do seu negócio.</span><span
+          aria-hidden="true">↗</span
+        >
+      </div>
+    </div>
+  </div>
+  <div class="shell hero-foot">
+    <span>O essencial para cuidar da sua loja</span><div>
+      <span><Icon name="check" size={16} /> Vendas organizadas</span><span
+        ><Icon name="check" size={16} /> Estoque acompanhado</span
+      ><span><Icon name="check" size={16} /> Gestão com informação</span>
+    </div>
+  </div>
+</section>
+<style>
+  .hero {
+    overflow: hidden;
+    background: linear-gradient(120deg, #fff 35%, #f2f5fa);
+  }
+  .hero-layout {
+    display: grid;
+    grid-template-columns: 1.06fr 1fr;
+    align-items: center;
+    gap: 52px;
+    padding-block: 76px 65px;
+  }
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--green);
+    font-size: 0.61rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 25px;
+  }
+  .location > span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+  }
+  h1 {
+    font-size: clamp(2.65rem, 4.15vw, 3.65rem);
+    line-height: 1.16;
+    letter-spacing: -0.055em;
+  }
+  h1 em {
+    color: var(--green);
+    font-style: normal;
+  }
+  .lead {
+    max-width: 475px;
+    color: var(--muted);
+    margin-top: 25px;
+    font-size: 0.97rem;
+    line-height: 1.85;
+  }
+  .lead strong {
+    color: var(--blue-dark);
+    font-weight: 600;
+  }
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 19px;
+    margin-top: 30px;
+  }
+  .hero-actions .button {
+    padding-inline: 24px;
+  }
+  .hero-actions .text-link {
+    font-size: 0.78rem;
+  }
+  .hero-signature {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    color: var(--muted);
+    font-size: 0.68rem;
+    margin-top: 36px;
+  }
+  .hero-signature strong {
+    color: var(--blue-dark);
+    font-weight: 500;
+  }
+  .signature-line {
+    width: 22px;
+    height: 1px;
+    background: #aebace;
+    margin-right: 7px;
+  }
+  .hero-art {
+    position: relative;
+    height: 490px;
+    background: var(--blue-dark);
+    border-radius: 20px 20px 80px 20px;
+    color: white;
+    isolation: isolate;
+    box-shadow: 0 24px 44px -24px #0d2d6e55;
+  }
+  .art-grid {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    overflow: hidden;
+    z-index: -1;
+    background-image:
+      linear-gradient(#ffffff05 1px, transparent 1px),
+      linear-gradient(90deg, #ffffff05 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .art-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: absolute;
+    top: 27px;
+    left: 26px;
+    right: 26px;
+    font-size: 0.54rem;
+    letter-spacing: 0.12em;
+    color: #d0dbef;
+  }
+  .art-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--yellow);
+    border-radius: 50%;
+  }
+  .art-cross {
+    margin-left: auto;
+    font-size: 20px;
+    font-weight: 400;
+    color: #7791bd;
+  }
+  .orbit {
+    position: absolute;
+    left: 50%;
+    top: 49%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ffffff1c;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+  }
+  .orbit-two {
+    width: 400px;
+    height: 400px;
+    border-style: dashed;
+    opacity: 0.6;
+  }
+  .core {
+    position: absolute;
+    left: 50%;
+    top: 49%;
+    transform: translate(-50%, -50%);
+    width: 175px;
+    height: 175px;
+    border: 1px solid #ffffff3d;
+    border-radius: 30px;
+    background: #173c7e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 18px 36px #051b462e;
+  }
+  .core strong {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.9rem;
+    letter-spacing: -0.07em;
+    line-height: 1.2;
+  }
+  .core strong span {
+    font-weight: 500;
+    margin-left: 4px;
+  }
+  .core small {
+    font-size: 0.62rem;
+    color: #d0dbef;
+    margin-top: 5px;
+  }
+  .core-symbol {
+    display: flex;
+    gap: 4px;
+    align-items: end;
+    height: 27px;
+    margin-bottom: 14px;
+    transform: skew(-14deg);
+  }
+  .core-symbol i {
+    width: 8px;
+    height: 16px;
+    border-radius: 2px;
+    background: #79b783;
+  }
+  .core-symbol i:nth-child(2) {
+    height: 22px;
+    background: var(--yellow);
+  }
+  .core-symbol i:last-child {
+    height: 27px;
+    background: white;
+  }
+  .module {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    min-width: 180px;
+    background: white;
+    color: var(--blue-dark);
+    border-radius: 10px;
+    box-shadow: 0 10px 24px #071c4733;
+  }
+  .module-icon {
+    background: #eef3fa;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+  }
+  .module small {
+    display: block;
+    color: var(--muted);
+    font-size: 0.5rem;
+    letter-spacing: 0.11em;
+    margin-bottom: 2px;
+  }
+  .module strong {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .module-sales {
+    top: 82px;
+    left: -16px;
+    transform: rotate(-4deg);
+  }
+  .module-stock {
+    top: 114px;
+    right: -20px;
+    transform: rotate(4deg);
+  }
+  .module-stock .module-icon {
+    color: var(--green);
+    background: #edf5e9;
+  }
+  .module-finance {
+    bottom: 113px;
+    left: -25px;
+    transform: rotate(-4deg);
+  }
+  .module-finance .module-icon {
+    color: var(--green);
+    background: #edf5e9;
+  }
+  .module-reports {
+    right: -8px;
+    bottom: 79px;
+    transform: rotate(4deg);
+  }
+  .module-reports .module-icon {
+    background: #fff7d5;
+  }
+  .art-bottom {
+    position: absolute;
+    bottom: 27px;
+    left: 27px;
+    right: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.62rem;
+    color: #d0dbef;
+  }
+  .art-bottom > span:last-child {
+    color: var(--yellow);
+    font-size: 22px;
+  }
+  .hero-foot {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    border-top: 1px solid var(--line);
+    padding-block: 26px;
+    color: var(--muted);
+    font-size: 0.7rem;
+  }
+  .hero-foot > div {
+    display: flex;
+    gap: 29px;
+  }
+  .hero-foot > div > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .hero-foot :global(svg) {
+    color: var(--green);
+  }
+  @media (min-width: 1400px) {
+    .hero-actions {
+      flex-direction: row;
+      gap: 22px;
+      align-items: center;
+    }
+  }
+  @media (max-width: 1100px) {
+    .hero-layout {
+      gap: 40px;
+    }
+    .module {
+      min-width: 155px;
+      padding: 12px;
+      gap: 8px;
+    }
+    .module strong {
+      font-size: 0.75rem;
+    }
+    .module-icon {
+      width: 35px;
+      height: 35px;
+    }
+    .orbit-two {
+      width: 320px;
+      height: 320px;
+    }
+    .hero-foot > div {
+      gap: 14px;
+    }
+  }
+  @media (max-width: 900px) {
+    .hero-layout {
+      grid-template-columns: 1fr;
+      gap: 50px;
+      padding-top: 48px;
+    }
+    .hero-copy {
+      max-width: 620px;
+    }
+    h1 {
+      font-size: clamp(2.65rem, 6vw, 3.5rem);
+    }
+    .lead {
+      max-width: 560px;
+    }
+    .hero-art {
+      width: min(100% - 24px, 560px);
+      justify-self: center;
+      height: 440px;
+    }
+    .hero-actions {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .module {
+      min-width: 180px;
+      padding: 16px;
+    }
+    .hero-foot {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .hero-foot > div {
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+    }
+    .core {
+      width: 155px;
+      height: 155px;
+    }
+    .module-sales {
+      top: 72px;
+    }
+    .module-stock {
+      top: 87px;
+    }
+    .module-finance {
+      bottom: 83px;
+    }
+    .module-reports {
+      bottom: 60px;
+    }
+  }
+  @media (max-width: 480px) {
+    .location {
+      font-size: 0.53rem;
+      letter-spacing: 0.055em;
+    }
+    .hero-actions {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .hero-art {
+      height: 410px;
+    }
+    .module {
+      min-width: 145px;
+      gap: 7px;
+      padding: 11px;
+    }
+    .module strong {
+      font-size: 0.7rem;
+    }
+    .module-icon {
+      width: 30px;
+      height: 32px;
+    }
+    .module :global(svg) {
+      width: 20px;
+    }
+    .module small {
+      font-size: 0.42rem;
+    }
+    .core {
+      width: 133px;
+      height: 133px;
+      border-radius: 23px;
+    }
+    .core strong {
+      font-size: 1.5rem;
+    }
+    .core-symbol {
+      margin-bottom: 9px;
+    }
+    .module-sales {
+      top: 69px;
+      left: -11px;
+    }
+    .module-stock {
+      top: 112px;
+      right: -12px;
+    }
+    .module-finance {
+      bottom: 111px;
+      left: -13px;
+    }
+    .module-reports {
+      bottom: 57px;
+      right: -10px;
+    }
+    .orbit {
+      width: 240px;
+      height: 240px;
+    }
+    .orbit-two {
+      width: 295px;
+      height: 295px;
+    }
+    .art-top {
+      left: 18px;
+      right: 18px;
+      font-size: 0.45rem;
+    }
+    .art-bottom {
+      left: 18px;
+      font-size: 0.52rem;
+    }
+  }
+</style>
