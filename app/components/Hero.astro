@@ -36,7 +36,7 @@ import { buildWhatsappHref } from "../lib/whatsapp";
     <div
       class="hero-art dark"
       role="img"
-      aria-label="Ilustração dos quatro módulos do NBD SYS: vendas e PDV, estoque, financeiro e relatórios."
+      aria-label="Ilustração dos cinco módulos do NBD SYS: vendas e PDV, fiscal (NFe/NFCe), estoque, financeiro e relatórios."
     >
       <div class="art-grid" aria-hidden="true"></div>
       <div class="art-top">
@@ -52,6 +52,11 @@ import { buildWhatsappHref } from "../lib/whatsapp";
       <div class="module module-sales">
         <span class="module-icon"><Icon name="store" size={24} /></span><div>
           <small>NO BALCÃO</small><strong>Vendas e PDV</strong>
+        </div>
+      </div>
+      <div class="module module-fiscal">
+        <span class="module-icon"><Icon name="chart" size={24} /></span><div>
+          <small>NO FISCAL</small><strong>NFe e NFCe</strong>
         </div>
       </div>
       <div class="module module-stock">
@@ -311,13 +316,13 @@ import { buildWhatsappHref } from "../lib/whatsapp";
     font-weight: 600;
   }
   .module-sales {
-    top: 82px;
-    left: -16px;
-    transform: rotate(-4deg);
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .module-stock {
-    top: 114px;
-    right: -20px;
+    top: 180px;
+    right: -18px;
     transform: rotate(4deg);
   }
   .module-stock .module-icon {
@@ -325,21 +330,30 @@ import { buildWhatsappHref } from "../lib/whatsapp";
     background: #edf5e9;
   }
   .module-finance {
-    bottom: 113px;
-    left: -25px;
-    transform: rotate(-4deg);
+    bottom: 90px;
+    left: -18px;
+    transform: rotate(4deg);
   }
   .module-finance .module-icon {
     color: var(--green);
     background: #edf5e9;
   }
   .module-reports {
-    right: -8px;
-    bottom: 79px;
-    transform: rotate(4deg);
+    right: -18px;
+    bottom: 90px;
+    transform: rotate(-4deg);
   }
   .module-reports .module-icon {
     background: #fff7d5;
+  }
+  .module-fiscal {
+    left: -18px;
+    top: 180px;
+    transform: rotate(-4deg);
+  }
+  .module-fiscal .module-icon {
+    background: #e8f0ff;
+    color: var(--blue-dark);
   }
   .art-bottom {
     position: absolute;
@@ -451,16 +465,21 @@ import { buildWhatsappHref } from "../lib/whatsapp";
       height: 155px;
     }
     .module-sales {
-      top: 72px;
+      top: 42px;
     }
     .module-stock {
-      top: 87px;
+      top: 175px;
     }
     .module-finance {
-      bottom: 83px;
+      bottom: 72px;
     }
     .module-reports {
-      bottom: 60px;
+      bottom: 72px;
+    }
+    .module-fiscal {
+      left: -18px;
+      top: 175px;
+      transform: rotate(-4deg);
     }
   }
   @media (max-width: 480px) {
@@ -505,20 +524,26 @@ import { buildWhatsappHref } from "../lib/whatsapp";
       margin-bottom: 9px;
     }
     .module-sales {
-      top: 69px;
-      left: -11px;
+      top: 48px;
+      left: 50%;
+      transform: translateX(-50%);
     }
     .module-stock {
-      top: 112px;
-      right: -12px;
+      top: 160px;
+      right: -10px;
     }
     .module-finance {
-      bottom: 111px;
-      left: -13px;
+      bottom: 70px;
+      left: -10px;
     }
     .module-reports {
-      bottom: 57px;
+      bottom: 70px;
       right: -10px;
+    }
+    .module-fiscal {
+      top: 160px;
+      left: -10px;
+      transform: rotate(-4deg);
     }
     .orbit {
       width: 240px;

@@ -9,22 +9,29 @@ const modules = [
     detail: "Cuide de cada venda.",
   },
   {
-    icon: "box" as const,
+    icon: "chart" as const,
     number: "02",
+    title: "Fiscal (NFe e NFCe)",
+    text: "Centralize emissão, validação e conferência de documentos fiscais no mesmo painel para reduzir erros e ganhar segurança no fechamento diário.",
+    detail: "Acompanhe notas, ajustes e situação tributária.",
+  },
+  {
+    icon: "box" as const,
+    number: "03",
     title: "Controle de estoque",
     text: "Acompanhe seus produtos e a movimentação das mercadorias. Tenha uma base mais clara para planejar a reposição.",
     detail: "Saiba o que sua loja tem.",
   },
   {
     icon: "wallet" as const,
-    number: "03",
+    number: "04",
     title: "Gestão financeira",
     text: "Organize as informações financeiras do negócio e acompanhe entradas e saídas para cuidar melhor da rotina da loja.",
     detail: "Enxergue o movimento do dinheiro.",
   },
   {
     icon: "chart" as const,
-    number: "04",
+    number: "05",
     title: "Relatórios de gestão",
     text: "Consulte informações do seu negócio e acompanhe os resultados. Transforme os registros da operação em apoio para suas decisões.",
     detail: "Decida com mais informação.",
@@ -87,7 +94,7 @@ const modules = [
   }
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 0;
     border: 1px solid var(--line);
     border-radius: 14px;
@@ -156,10 +163,10 @@ const modules = [
     .features-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-    .feature:nth-child(2) {
+    .feature:nth-child(even) {
       border-right: 0;
     }
-    .feature:nth-child(-n + 2) {
+    .feature:nth-child(-n + 4) {
       border-bottom: 1px solid var(--line);
     }
   }
